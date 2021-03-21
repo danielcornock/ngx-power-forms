@@ -1,4 +1,5 @@
 import { FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { FormInputType } from '../constants/form-input-type.constant';
 import { FormInputConfig, FormInputConfigWithCustomConfig } from '../interfaces/form-input-config.interface';
 
@@ -26,5 +27,17 @@ export class FormInputField<TCustomConfig = undefined> {
 
   public get isRequired(): boolean {
     return this.required;
+  }
+
+  public get value(): any {
+    return this.control.value;
+  }
+
+  public get value$(): Observable<any> {
+    return this.control.valueChanges;
+  }
+
+  public setValue(newValue: any): void {
+    this.control.setValue(newValue);
   }
 }
