@@ -1,5 +1,6 @@
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { FormInputType } from '../constants/form-input-type.constant';
 import { FormInputConfig, FormInputConfigWithCustomConfig } from '../interfaces/form-input-config.interface';
 
@@ -35,6 +36,10 @@ export class FormInputField<TCustomConfig = undefined> {
 
   public get value$(): Observable<any> {
     return this.control.valueChanges;
+  }
+
+  public get errors$(): Record<string, any> | null {
+    return this.value$.pipe(map(() => (this.control.touched && this.control.invalid && this.control.errors) ?? null));
   }
 
   public setValue(newValue: any): void {

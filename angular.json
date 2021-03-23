@@ -7,7 +7,13 @@
       "projectType": "library",
       "root": "projects/ngx-power-forms",
       "sourceRoot": "projects/ngx-power-forms/src",
-      "prefix": "lib",
+      "prefix": "pow",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "changeDetection": "OnPush"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

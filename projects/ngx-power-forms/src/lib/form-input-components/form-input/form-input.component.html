@@ -1,0 +1,10 @@
+<div class="form-input-container">
+  <label class="form-input-label" [attr.for]="formInputField.name"
+    [class.is-errored]="formInputField.errors$ | async">{{ formInputField.label }}</label>
+
+  <input class="form-input" [type]="formInputField.type" [class.is-errored]="formInputField.errors$ | async"
+    [placeholder]="formInputField.placeholder" [attr.name]="formInputField.name" [attr.id]="formInputField.name"
+    [formControl]="formInputField.control">
+
+  <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>
+</div>

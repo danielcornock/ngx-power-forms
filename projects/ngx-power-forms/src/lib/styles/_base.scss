@@ -1,0 +1,46 @@
+.form-input-label {
+  display: block;
+  text-align: left;
+  font-size: var(--form-input-label-font-size, 14px);
+  margin-bottom: var(--form-input-label-margin-bottom, 6px);
+  font-weight: var(--form-input-label-font-weight, 500);
+  letter-spacing: var(--form-input-label-letter-spacing, 0.5px);
+  color: var(--form-input-label-color);
+
+  &.is-errored {
+    color: var(--form-input-label-color--error, red);
+  }
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  background-color: var(--form-input-background-color, white);
+  padding: var(--form-input-padding, 12px);
+  border: var(--form-input-border, 1px solid grey);
+  border-radius: var(--form-input-border-radius, 5px);
+  font-size: var(--form-input-font-size, 16px);
+
+
+  &:focus {
+    outline-width: var(--form-input-outline-width--focus, 1px);
+    outline-color: var(--form-input-outline-color--focus, blue);
+  }
+
+  &.is-errored {
+    border-color: var(--form-input-border-color--error, red);
+    outline-color: var(--form-input-outline-color--error, red);
+  }
+}
+
+.form-input-error {
+  color: var(--form-input-error-color, red);
+  font-weight: var(--form-input-error-font-weight, 500);
+  font-size: var(--form-input-error-font-size, 14px);
+}
+
+.form-input-host {
+  & + & {
+    margin-top: var(--form-input-spacing, 20px);
+  }
+}
