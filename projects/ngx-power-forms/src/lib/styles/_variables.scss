@@ -1,0 +1,50 @@
+:root {
+  /* Form input label */
+  --form-input-label-font-size: 14px;
+  --form-input-label-margin-bottom: 6px;
+  --form-input-label-font-weight: 500;
+  --form-input-label-letter-spacing: 0.5px;
+  --form-input-label-color: grey;
+
+  /* Form input label error state */
+  --form-input-label-color--error: red;
+
+  /* Form input field */
+  --form-input-background-color: white;
+  --form-input-padding: 12px;
+  --form-input-border-color: grey;
+  --form-input-border: 1px solid var(--form-input-border-color);
+  --form-input-border-radius: 5px;
+  --form-input-font-size: 16px;
+
+  /* Form input field focus states */
+  --form-input-outline-width--focus: 1px;
+  --form-input-outline-color--focus: blue;
+
+  /* Form input field error states */
+  --form-input-border-color--error: red;
+  --form-input-outline-color--error: red;
+
+  /* Form input error text */
+  --form-input-error-color: red;
+  --form-input-error-font-weight: 500;
+  --form-input-error-font-size: 14px;
+  --form-input-error-spacing-top: 4px;
+
+  /* Form input host */
+  --form-input-spacing: 20px;
+
+  /* -- Custom fields -- */
+
+  /* Select */
+  --form-input-select-icon-color: var(--form-input-border-color);
+  --form-input-select-icon-spacing: var(--form-input-padding);
+
+  /* Checkbox */
+  --form-input-checkbox-size: 30px;
+  --form-input-checkbox-spacing: 10px;
+  --form-input-checkbox-label-font-size: var(--form-input-label-font-size);
+  --form-input-checkbox-check-color: var(--form-input-outline-color--focus);
+  --form-input-checkbox-inner-size: 16px;
+
+}

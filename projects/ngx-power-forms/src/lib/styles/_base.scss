@@ -1,46 +1,50 @@
 .form-input-label {
   display: block;
   text-align: left;
-  font-size: var(--form-input-label-font-size, 14px);
-  margin-bottom: var(--form-input-label-margin-bottom, 6px);
-  font-weight: var(--form-input-label-font-weight, 500);
-  letter-spacing: var(--form-input-label-letter-spacing, 0.5px);
+  font-size: var(--form-input-label-font-size);
+  margin-bottom: var(--form-input-label-margin-bottom);
+  font-weight: var(--form-input-label-font-weight);
+  letter-spacing: var(--form-input-label-letter-spacing);
   color: var(--form-input-label-color);
 
   &.is-errored {
-    color: var(--form-input-label-color--error, red);
+    color: var(--form-input-label-color--error);
   }
 }
 
 .form-input {
   display: block;
   width: 100%;
-  background-color: var(--form-input-background-color, white);
-  padding: var(--form-input-padding, 12px);
-  border: var(--form-input-border, 1px solid grey);
-  border-radius: var(--form-input-border-radius, 5px);
-  font-size: var(--form-input-font-size, 16px);
-
+  background-color: var(--form-input-background-color);
+  padding: var(--form-input-padding);
+  border: var(--form-input-border);
+  border-radius: var(--form-input-border-radius);
+  font-size: var(--form-input-font-size);
+  appearance: none;
+  -webkit-appearance: none;
 
   &:focus {
-    outline-width: var(--form-input-outline-width--focus, 1px);
-    outline-color: var(--form-input-outline-color--focus, blue);
+    outline-width: var(--form-input-outline-width--focus);
+    outline-color: var(--form-input-outline-color--focus);
   }
 
   &.is-errored {
-    border-color: var(--form-input-border-color--error, red);
-    outline-color: var(--form-input-outline-color--error, red);
+    border-color: var(--form-input-border-color--error);
+    outline-color: var(--form-input-outline-color--error);
   }
 }
 
 .form-input-error {
-  color: var(--form-input-error-color, red);
-  font-weight: var(--form-input-error-font-weight, 500);
-  font-size: var(--form-input-error-font-size, 14px);
+  color: var(--form-input-error-color);
+  font-weight: var(--form-input-error-font-weight);
+  font-size: var(--form-input-error-font-size);
+  margin-top: var(--form-input-error-spacing-top);
 }
 
 .form-input-host {
+  display: block;
+
   & + & {
-    margin-top: var(--form-input-spacing, 20px);
+    margin-top: var(--form-input-spacing);
   }
 }
