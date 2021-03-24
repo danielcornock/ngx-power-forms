@@ -1,0 +1,17 @@
+<div class="form-input-container">
+  <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
+
+  <div class="form-input-select-container">
+    <select class="form-input form-input-select" [attr.name]="formInputField.name" [attr.id]="formInputField.name">
+      <option *ngIf="formInputField.placeholder" value="" selected disabled>{{ formInputField.placeholder }}</option>
+  
+      <ng-container *ngIf="dropdownOptions; else reactiveOptions">
+        <option *ngFor="let option of dropdownOptions" [attr.value]="option.value">{{ option.label }}</option>
+      </ng-container>
+  
+      <ng-template #reactiveOptions>
+        <option *ngFor="let option of dropdownOptions$ | async" [attr.value]="option.value">{{ option.label }}</option>
+      </ng-template>
+    </select>
+  </div>
+</div>

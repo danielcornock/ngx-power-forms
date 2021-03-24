@@ -1,0 +1,12 @@
+.form-input-select-container {
+  position: relative;
+  
+  &::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: var(--form-input-select-icon-spacing);
+    color: var(--form-input-select-icon-color);
+  }
+}
