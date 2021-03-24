@@ -1,4 +1,5 @@
 export * from './form-factory-config.interface';
 export * from './form-input-config.interface';
 export * from './form-input-custom-config.interface';
-export * from './label-value-pair.interface';
+export * from './select-option.interface';
+

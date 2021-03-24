@@ -1,7 +1,7 @@
-import { FormInputField } from '../instances/form-input-field';
+import { FormGroupValue } from './form-group-value.interface';
 import { FormInputConfig } from './form-input-config.interface';
 
 export interface FormFactoryConfig {
-  fields: Array<FormInputConfig | FormInputField>;
-  onSave(): void | Promise<void>;
+  fields: Array<FormInputConfig>;
+  onSave(formConfig: FormGroupValue): void | Promise<void>;
 }

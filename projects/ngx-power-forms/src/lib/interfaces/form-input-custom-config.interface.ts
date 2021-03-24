@@ -1,6 +1,10 @@
 import { Observable } from 'rxjs';
-import { LabelValuePair } from './label-value-pair.interface';
+import { SelectOption } from './select-option.interface';
 
 export interface FormInputSelectCustomConfig {
-  options: Array<LabelValuePair> | Observable<LabelValuePair[]>;
+  options: Array<SelectOption> | Observable<SelectOption[]>;
+}
+
+export interface FormInputCheckboxCustomConfig {
+  useTemplateLabel?: boolean;
 }

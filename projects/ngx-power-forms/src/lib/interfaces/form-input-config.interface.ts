@@ -1,8 +1,8 @@
 import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
 import { FormInputType } from '../constants/form-input-type.constant';
-import { FormInputSelectCustomConfig } from './form-input-custom-config.interface';
+import { FormInputCheckboxCustomConfig, FormInputSelectCustomConfig } from './form-input-custom-config.interface';
 
-export type FormInputConfig = FormInputTextConfig | FormInputSelectConfig;
+export type FormInputConfig = FormInputTextConfig | FormInputSelectConfig | FormInputCheckboxConfig;
 
 export interface FormInputBaseConfig {
   name: string;
@@ -15,11 +15,17 @@ export interface FormInputBaseConfig {
 }
 
 export interface FormInputTextConfig extends FormInputBaseConfig {
-  type: FormInputType.TEXT | FormInputType.EMAIL;
+  type: FormInputType.TEXT | FormInputType.EMAIL | FormInputType.NUMBER;
+  value?: string | number;
 }
 
 export interface FormInputSelectConfig extends FormInputConfigWithCustomConfig<FormInputSelectCustomConfig> {
   type: FormInputType.SELECT;
+}
+
+export interface FormInputCheckboxConfig extends FormInputConfigWithCustomConfig<FormInputCheckboxCustomConfig> {
+  type: FormInputType.CHECKBOX;
+  value?: boolean;
 }
 
 export interface FormInputConfigWithCustomConfig<T> extends FormInputBaseConfig {
