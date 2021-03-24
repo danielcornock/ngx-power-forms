@@ -7,10 +7,9 @@
   width: 0;
   overflow: hidden;
 
-  &:focus {
+  &:focus, &:active {
     & + .form-input-checkbox {
-      outline-width: var(--form-input-outline-width--focus);
-      outline-color: var(--form-input-outline-color--focus);
+      outline: var(--form-input-outline-width--focus) auto var(--form-input-outline-color--focus);
     }
   }
 }
