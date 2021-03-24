@@ -18,13 +18,7 @@ export class FormFactory {
   }
 
   private createFormFields(fields: FormFactoryConfig['fields']): Array<FormInputField> {
-    return fields.map((field) => {
-      if (field instanceof FormInputField) {
-        return field;
-      } else {
-        return this.formInputFactory.create(field);
-      }
-    });
+    return fields.map((field) => this.formInputFactory.create(field));
   }
 
   private createFormGroup(options: Array<FormInputField>): FormGroup {
