@@ -1,19 +1,22 @@
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, ValidationErrors, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FormInputType } from '../constants/form-input-type.constant';
 import { FormInputConfig, FormInputConfigWithCustomConfig } from '../interfaces/form-input-config.interface';
 
-export class FormInputField<TCustomConfig = undefined> {
+export class FormInputField<TCustomConfig = any> {
   public name: string;
   public label: string;
   public control: FormControl;
   public type: FormInputType;
   public placeholder: string;
 
-  public customConfig?: TCustomConfig;
+  public customConfig: TCustomConfig;
 
-  private required: boolean;
+  public errors$: Observable<ValidationErrors | null>;
+  public value$: Observable<any>;
+
+  public isRequired: boolean;
 
   constructor(config: FormInputConfig, control: FormControl) {
     this.control = control;
@@ -23,23 +26,13 @@ export class FormInputField<TCustomConfig = undefined> {
     this.type = config.type;
     this.customConfig = (config as FormInputConfigWithCustomConfig<any>).customConfig;
 
-    this.required = config.validators?.includes(Validators.required) ?? false;
-  }
-
-  public get isRequired(): boolean {
-    return this.required;
+    this.isRequired = config.validators?.includes(Validators.required) ?? false;
+    this.value$ = this.control.valueChanges;
+    this.errors$ = this.value$.pipe(map(() => (this.control.dirty && this.control.invalid && this.control.errors) || null));
   }
 
   public get value(): any {
     return this.control.value;
-  }
-
-  public get value$(): Observable<any> {
-    return this.control.valueChanges;
-  }
-
-  public get errors$(): Record<string, any> | null {
-    return this.value$.pipe(map(() => (this.control.touched && this.control.invalid && this.control.errors) ?? null));
   }
 
   public setValue(newValue: any): void {
