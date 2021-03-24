@@ -6,9 +6,9 @@ import { FormInputField } from '../../instances';
   templateUrl: './form-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormInputComponent {
+export class FormInputComponent<TCustomConfig = unknown> {
   @Input()
-  public formInputField: FormInputField;
+  public formInputField: FormInputField<TCustomConfig>;
 
   @HostBinding('class')
   public classes = 'form-input-host';
