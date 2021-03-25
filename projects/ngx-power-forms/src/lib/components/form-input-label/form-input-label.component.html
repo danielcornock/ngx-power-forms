@@ -1,3 +1,4 @@
 <label class="form-input-label" [attr.for]="formInputField.name" [class.is-errored]="formInputField.errors$ | async">
   {{ formInputField.label }}
+  <span *ngIf="formInputField.isRequired && requiredSymbol">{{ requiredSymbol }}</span>
 </label>

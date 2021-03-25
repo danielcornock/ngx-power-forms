@@ -13,9 +13,6 @@ import { AppComponent } from './app.component';
     NgxPowerFormsModule.forRoot({
       customErrors: {
         required: 'Please ensure you fill in this field'
-      },
-      customOptions: {
-        checkboxCheckedText: '👌'
       }
     })
   ],

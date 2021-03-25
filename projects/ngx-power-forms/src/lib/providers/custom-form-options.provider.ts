@@ -1,7 +1,10 @@
 import { InjectionToken } from '@angular/core';
 import { PowerFormsModuleCustomOptions } from '../interfaces/power-forms-module-config.interface';
 
-export const defaultCustomFormOptions: PowerFormsModuleCustomOptions = {};
+export const defaultCustomFormOptions: PowerFormsModuleCustomOptions = {
+  showRequiredSymbol: true,
+  requiredSymbol: '*'
+};
 
 export const CustomFormOptions = new InjectionToken('CustomOptionsToken');
 
