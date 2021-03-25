@@ -1,0 +1,49 @@
+.form-input-radio-container {
+  border: 0;
+}
+
+.form-input-radio-label {
+  margin-bottom: 0;
+  font-size: var(--form-input-checkbox-label-font-size);
+}
+
+.form-input-radio-option {
+  display: flex;
+  align-items: center;
+  margin-top: var(--form-input-radio-spacing);
+}
+
+.form-input-radio-ghost {
+  width: 0;
+  overflow: hidden;
+
+  &:focus-visible {
+    & + .form-input-radio {
+      border: 2px solid var(--form-input-outline-color--focus);
+    }
+  }
+}
+
+.form-input-radio {
+  height: var(--form-input-radio-size);
+  width: var(--form-input-radio-size);
+  border: var(--form-input-radio-border);
+  border-radius: 9999px;
+  margin-right: var(--form-input-radio-label-spacing);
+  position: relative;
+  background-color: var(--form-input-background-color);
+
+  &.is-selected {
+    &::after {
+      content: '';
+      position: absolute;
+      height: var(--form-input-radio-selected-size);
+      width: var(--form-input-radio-selected-size);
+      border-radius: 9999px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--form-input-checkbox-check-color);
+    }
+  }
+}

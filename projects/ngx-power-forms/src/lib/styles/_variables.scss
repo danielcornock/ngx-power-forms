@@ -1,7 +1,7 @@
 :root {
   /* Form input label */
   --form-input-label-font-size: 14px;
-  --form-input-label-margin-bottom: 6px;
+  --form-input-label-margin-bottom: 8px;
   --form-input-label-font-weight: 500;
   --form-input-label-letter-spacing: 0.5px;
   --form-input-label-color: grey;
@@ -33,19 +33,26 @@
   --form-input-error-spacing-top: 4px;
 
   /* Form input host */
-  --form-input-spacing: 20px;
+  --form-input-spacing: 24px;
 
   /* -- Custom fields -- */
 
   /* Select */
   --form-input-select-icon-color: var(--form-input-border-color);
   --form-input-select-icon-spacing: var(--form-input-padding);
-
+  
   /* Checkbox */
   --form-input-checkbox-size: 30px;
   --form-input-checkbox-spacing: 10px;
   --form-input-checkbox-label-font-size: var(--form-input-label-font-size);
   --form-input-checkbox-check-color: var(--form-input-outline-color--focus);
   --form-input-checkbox-inner-size: 16px;
-
+  --form-input-checkbox-label-font-size: 12px;
+  
+  /* Radio */
+  --form-input-radio-size: 22px;
+  --form-input-radio-selected-size: 11px;
+  --form-input-radio-spacing: 10px;
+  --form-input-radio-label-spacing: 10px;
+  --form-input-radio-border: 1px solid var(--form-input-border-color);
 }

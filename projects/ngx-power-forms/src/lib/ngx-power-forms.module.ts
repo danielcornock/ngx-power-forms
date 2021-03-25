@@ -5,6 +5,7 @@ import { FormInputErrorComponent } from './components/form-input-error/form-inpu
 import { FormInputLabelComponent } from './components/form-input-label/form-input-label.component';
 import { FormInputCheckboxComponent } from './form-input-components/form-input-checkbox/form-input-checkbox.component';
 import { FormInputNumberComponent } from './form-input-components/form-input-number/form-input-number.component';
+import { FormInputRadioSetComponent } from './form-input-components/form-input-radio-set/form-input-radio-set.component';
 import { FormInputSelectComponent } from './form-input-components/form-input-select/form-input-select.component';
 import { FormInputComponent } from './form-input-components/form-input/form-input.component';
 import { PowerFormsModuleConfig } from './interfaces/power-forms-module-config.interface';
@@ -20,7 +21,8 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputSelectComponent,
     FormInputLabelComponent,
     FormInputNumberComponent,
-    FormInputCheckboxComponent
+    FormInputCheckboxComponent,
+    FormInputRadioSetComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   providers: [FormFactory, FormInputFactory],
@@ -30,7 +32,8 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputSelectComponent,
     FormInputNumberComponent,
     FormInputCheckboxComponent,
-    FormInputLabelComponent
+    FormInputLabelComponent,
+    FormInputRadioSetComponent
   ]
 })
 export class NgxPowerFormsModule {

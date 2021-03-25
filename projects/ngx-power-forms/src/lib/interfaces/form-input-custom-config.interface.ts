@@ -8,3 +8,7 @@ export interface FormInputSelectCustomConfig {
 export interface FormInputCheckboxCustomConfig {
   useTemplateLabel?: boolean;
 }
+
+export interface FormInputRadioSetCustomConfig {
+  options: Array<SelectOption> | Observable<SelectOption[]>;
+}

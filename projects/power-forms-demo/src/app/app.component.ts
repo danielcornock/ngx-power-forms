@@ -57,11 +57,24 @@ export class AppComponent implements OnInit {
           label: 'Checkbox field',
           type: FormInputType.CHECKBOX,
           customConfig: {}
+        },
+        {
+          name: 'radioField',
+          label: 'Radio field',
+          type: FormInputType.RADIO,
+          customConfig: {
+            options: [
+              { label: 'Option 1', value: 1 },
+              { label: 'Option 2', value: 2 }
+            ]
+          }
         }
       ],
       onSave: (formValue) => console.log(formValue)
     });
 
     this.fields = this.form.getFieldsObject();
+
+    this.form.value$.subscribe(console.log);
   }
 }

@@ -7,7 +7,7 @@
   width: 0;
   overflow: hidden;
 
-  &:focus, &:active {
+  &:focus-visible {
     & + .form-input-checkbox {
       outline: var(--form-input-outline-width--focus) auto var(--form-input-outline-color--focus);
     }
@@ -37,5 +37,6 @@
 }
 
 .form-input-checkbox-label {
+  font-size: var(--form-input-checkbox-label-font-size);
   margin-bottom: 0;
 }
