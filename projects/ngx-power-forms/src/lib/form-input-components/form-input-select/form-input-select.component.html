@@ -3,15 +3,8 @@
 
   <div class="form-input-select-container">
     <select class="form-input" [attr.name]="formInputField.name" [attr.id]="formInputField.name">
-      <option *ngIf="formInputField.placeholder" value="" selected disabled>{{ formInputField.placeholder }}</option>
-  
-      <ng-container *ngIf="dropdownOptions; else reactiveOptions">
-        <option *ngFor="let option of dropdownOptions" [attr.value]="option.value">{{ option.label }}</option>
-      </ng-container>
-  
-      <ng-template #reactiveOptions>
-        <option *ngFor="let option of dropdownOptions$ | async" [attr.value]="option.value">{{ option.label }}</option>
-      </ng-template>
+      <option value="" [selected]="!formInputField.value" disabled>{{ formInputField.placeholder }}</option>
+      <option *ngFor="let option of dropdownOptions || (dropdownOptions$ | async)" [attr.value]="option.value">{{ option.label }}</option>
     </select>
   </div>
 </div>
