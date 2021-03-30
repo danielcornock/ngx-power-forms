@@ -27,8 +27,22 @@ export class AppComponent implements OnInit {
         },
         {
           name: 'selectField',
-          label: 'Select field',
+          label: 'Select field with placeholder',
           type: FormInputType.SELECT,
+          placeholder: 'Select your option',
+          customConfig: {
+            options: [
+              { label: 'Option 1', value: 1 },
+              { label: 'Option 2', value: 2 }
+            ]
+          }
+        },
+        {
+          name: 'selectFieldWithDefault',
+          label: 'Select field with default',
+          type: FormInputType.SELECT,
+          placeholder: 'Select your option',
+          value: 1,
           customConfig: {
             options: [
               { label: 'Option 1', value: 1 },
@@ -67,6 +81,17 @@ export class AppComponent implements OnInit {
               { label: 'Option 1', value: 1 },
               { label: 'Option 2', value: 2 }
             ]
+          }
+        },
+        {
+          name: 'reactiveRadioField',
+          label: 'Reactive Radio field',
+          type: FormInputType.RADIO,
+          customConfig: {
+            options: of([
+              { label: 'Option 1', value: 1 },
+              { label: 'Option 2', value: 2 }
+            ])
           }
         }
       ],
