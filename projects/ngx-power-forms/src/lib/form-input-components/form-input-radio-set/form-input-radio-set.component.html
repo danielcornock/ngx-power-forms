@@ -1,8 +1,8 @@
 <fieldset class="form-input-container form-input-radio-container">
   <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
 
-  <label class="form-input-radio-option" *ngFor="let option of formInputField.customConfig.options" [attr.for]="option.value">
-    <input class="form-input-radio-ghost" type="radio" [attr.id]="option.value" [value]="option.value" [attr.name]="formInputField.name" [formControl]="formInputField.control">
+  <label class="form-input-radio-option" *ngFor="let option of dropdownOptions || (dropdownOptions$ | async)" [attr.for]="formInputField.name + option.value">
+    <input class="form-input-radio-ghost" type="radio" [attr.id]="formInputField.name + option.value" [value]="option.value" [attr.name]="formInputField.name" [formControl]="formInputField.control">
 
     <div class="form-input-radio" [class.is-selected]="formInputField.control.value === option.value"></div>
 

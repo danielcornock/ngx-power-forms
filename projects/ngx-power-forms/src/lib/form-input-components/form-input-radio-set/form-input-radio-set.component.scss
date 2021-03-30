@@ -4,7 +4,7 @@
 
 .form-input-radio-label {
   margin-bottom: 0;
-  font-size: var(--form-input-checkbox-label-font-size);
+  font-size: var(--form-input-radio-label-font-size);
 }
 
 .form-input-radio-option {
@@ -43,7 +43,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: var(--form-input-checkbox-check-color);
+      background-color: var(--form-input-radio-check-color);
     }
   }
 }

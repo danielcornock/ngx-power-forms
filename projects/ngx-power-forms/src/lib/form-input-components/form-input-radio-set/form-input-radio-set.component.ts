@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormInputRadioSetCustomConfig } from '../../interfaces';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FormInputRadioSetCustomConfig, SelectOption } from '../../interfaces';
 import { FormInputComponent } from '../form-input/form-input.component';
 
 @Component({
@@ -8,4 +9,15 @@ import { FormInputComponent } from '../form-input/form-input.component';
   styleUrls: ['./form-input-radio-set.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormInputRadioSetComponent extends FormInputComponent<FormInputRadioSetCustomConfig> {}
+export class FormInputRadioSetComponent extends FormInputComponent<FormInputRadioSetCustomConfig> implements OnInit {
+  public dropdownOptions: Array<SelectOption>;
+  public dropdownOptions$: Observable<SelectOption[]>;
+
+  public ngOnInit(): void {
+    if (this.formInputField.customConfig.options instanceof Observable) {
+      this.dropdownOptions$ = this.formInputField.customConfig.options;
+    } else {
+      this.dropdownOptions = this.formInputField.customConfig.options;
+    }
+  }
+}
