@@ -2,9 +2,7 @@
   <input type="checkbox" [attr.id]="formInputField.name" class="form-input-checkbox-ghost"
     [formControl]="formInputField.control">
 
-  <div class="form-input-checkbox">
-    <span class="form-input-checkbox-check" *ngIf="formInputField.value"></span>
-  </div>
+  <div class="form-input-checkbox" [class.is-checked]="formInputField.value"></div>
 
   <span class="form-input-label form-input-checkbox-label">
     <ng-container *ngIf="!formInputField.customConfig.useTemplateLabel; else customTemplate">{{ formInputField.label  }}</ng-container>

@@ -23,17 +23,22 @@
 
   height: var(--form-input-checkbox-size);
   width: var(--form-input-checkbox-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   flex-shrink: 0;
-}
 
-.form-input-checkbox-check {
-  height: var(--form-input-checkbox-inner-size);
-  width: var(--form-input-checkbox-inner-size);
-  border-radius: var(--form-input-border-radius);
-  background-color: var(--form-input-checkbox-check-color); 
+  &.is-checked {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: var(--form-input-checkbox-inner-size);
+      width: var(--form-input-checkbox-inner-size);
+      border-radius: var(--form-input-border-radius);
+      background-color: var(--form-input-checkbox-check-color);
+    }
+  }
 }
 
 .form-input-checkbox-label {
