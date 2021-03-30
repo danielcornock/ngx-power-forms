@@ -33,6 +33,10 @@
     border-color: var(--form-input-border-color--error);
     outline-color: var(--form-input-outline-color--error);
   }
+
+  &::placeholder {
+    color: var(--form-input-placeholder-color);
+  }
 }
 
 .form-input-error {
