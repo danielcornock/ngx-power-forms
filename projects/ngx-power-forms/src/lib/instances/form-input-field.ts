@@ -38,4 +38,8 @@ export class FormInputField<TCustomConfig = any> {
   public setValue(newValue: any): void {
     this.control.setValue(newValue);
   }
+
+  public setError(value: Record<string, any>): void {
+    this.control.setErrors(value)
+  }
 }
