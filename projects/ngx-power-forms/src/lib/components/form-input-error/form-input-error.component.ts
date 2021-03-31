@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnChanges } from '@angular/core';
+import { ErrorDictionary } from '../../interfaces/error-dictionary.interface';
 import { ErrorsDictionary } from '../../providers/error-dictionary.provider';
 
 @Component({
@@ -12,14 +13,25 @@ export class FormInputErrorComponent implements OnChanges {
 
   public error: string | null;
 
-  constructor(@Inject(ErrorsDictionary) private errorsDictionary: Record<string, string>){}
+  constructor(@Inject(ErrorsDictionary) private errorsDictionary: ErrorDictionary){}
 
   ngOnChanges(): void {
     if (this.errors && Object.keys(this.errors).length) {
-      const firstError = Object.keys(this.errors)[0];
-      this.error = this.errorsDictionary[firstError];
+      this.error = this.getErrorMessage();
     } else {
       this.error = null;
+    }
+  }
+
+  private getErrorMessage(): string {
+    const firstErrorKey = Object.keys(this.errors as object)[0];
+
+    const clientError = this.errorsDictionary[firstErrorKey];
+
+    if (clientError !== undefined) {
+      return clientError(this.errors?.[firstErrorKey]);
+    } else {
+      return this.errors?.[firstErrorKey];
     }
   }
 }

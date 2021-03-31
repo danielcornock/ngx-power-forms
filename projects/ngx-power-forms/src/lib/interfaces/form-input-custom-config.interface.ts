@@ -12,3 +12,7 @@ export interface FormInputCheckboxCustomConfig {
 export interface FormInputRadioSetCustomConfig {
   options: Array<SelectOption> | Observable<SelectOption[]>;
 }
+
+export interface FormInputTextareaCustomConfig {
+  minLines?: number;
+}

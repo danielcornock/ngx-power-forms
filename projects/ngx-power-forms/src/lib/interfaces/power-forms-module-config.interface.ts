@@ -1,6 +1,8 @@
+import { ErrorDictionary } from './error-dictionary.interface';
+
 export interface PowerFormsModuleConfig {
   customInputs?: {};
-  customErrors?: Record<string, string>;
+  customErrors?: ErrorDictionary;
   customOptions?: Partial<PowerFormsModuleCustomOptions>;
 }
 
