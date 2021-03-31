@@ -1,0 +1,8 @@
+<div class="form-input-container">
+  <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
+
+  <textarea class="form-input form-input-textarea" [attr.name]="formInputField.name" [attr.id]="formInputField.name" [formControl]="formInputField.control"
+    [class.is-errored]="formInputField.errors$ | async" [placeholder]="formInputField.placeholder" [rows]="formInputField.customConfig?.minLines || 5"></textarea>
+
+  <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>
+</div>

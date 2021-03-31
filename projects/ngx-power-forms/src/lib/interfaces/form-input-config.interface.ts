@@ -1,13 +1,17 @@
 import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
 import { FormInputType } from '../constants/form-input-type.constant';
-import { FormInputCheckboxCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig } from './form-input-custom-config.interface';
+import { FormInputCheckboxCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig, FormInputTextareaCustomConfig } from './form-input-custom-config.interface';
 
-export type FormInputConfig = FormInputTextConfig | FormInputSelectConfig | FormInputCheckboxConfig | FormInputRadioSetConfig;
+export type FormInputConfig = FormInputTextConfig
+| FormInputSelectConfig
+| FormInputCheckboxConfig
+| FormInputRadioSetConfig
+| FormInputTextareaConfig;
 
 export interface FormInputBaseConfig {
   name: string;
   label: string;
-  type: string;
+  type: FormInputType | string;
   value?: any;
   placeholder?: string;
   validators?: Array<ValidatorFn>;
@@ -30,6 +34,12 @@ export interface FormInputCheckboxConfig extends FormInputConfigWithCustomConfig
 
 export interface FormInputRadioSetConfig extends FormInputConfigWithCustomConfig<FormInputRadioSetCustomConfig> {
   type: FormInputType.RADIO;
+}
+
+export interface FormInputTextareaConfig extends FormInputBaseConfig {
+  type: FormInputType.TEXTAREA;
+  value?: string;
+  customConfig?: FormInputTextareaCustomConfig;
 }
 export interface FormInputConfigWithCustomConfig<T> extends FormInputBaseConfig {
   customConfig: T;

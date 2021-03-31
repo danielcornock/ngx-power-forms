@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     NgxPowerFormsModule.forRoot({
       customErrors: {
-        required: 'Please ensure you fill in this field'
+        required: () => 'Please ensure you fill in this field'
       }
     })
   ],

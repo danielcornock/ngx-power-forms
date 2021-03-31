@@ -64,7 +64,8 @@ export class AppComponent implements OnInit {
         {
           name: 'numberField',
           label: 'Number field',
-          type: FormInputType.NUMBER
+          type: FormInputType.NUMBER,
+          validators: [Validators.min(5)]
         },
         {
           name: 'checkboxField',
@@ -93,6 +94,12 @@ export class AppComponent implements OnInit {
               { label: 'Option 2', value: 2 }
             ])
           }
+        },
+        {
+          name: 'textareaField',
+          label: 'Text area field',
+          type: FormInputType.TEXTAREA,
+          validators: [Validators.minLength(20), Validators.maxLength(100)]
         }
       ],
       onSave: (formValue) => console.log(formValue)
@@ -100,6 +107,8 @@ export class AppComponent implements OnInit {
 
     this.fields = this.form.getFieldsObject();
 
-    this.form.value$.subscribe(console.log);
+    this.form.value$.subscribe(val => {
+      console.log(this.form.formGroup);
+    });
   }
 }

@@ -6,5 +6,6 @@ export enum FormInputType {
   SELECT = 'select',
   MULTI_SELECT = 'multiSelect',
   CHECKBOX = 'checkbox',
-  RADIO = 'radio'
+  RADIO = 'radio',
+  TEXTAREA = 'textarea'
 }
