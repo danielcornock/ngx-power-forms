@@ -6,7 +6,7 @@ export const defaultErrors = {
   maxlength: (options: { requiredLength: number, actualLength: number }) => `${options.actualLength} out of ${options.requiredLength}. Too many characters`,
   minlength: (options: { requiredLength: number, actualLength: number }) => `${options.actualLength} out of ${options.requiredLength}. Too little characters`,
   max: (options: { max: number, actual: number }) => `Value must be less than ${options.max}`,
-  min: (options: { min: number, max: number }) => `Value must be greater than ${options.max}`
+  min: (options: { min: number, actual: number }) => `Value must be greater than ${options.min}`
 };
 
 export const ErrorsDictionary = new InjectionToken('ErrorsDictionaryToken');
