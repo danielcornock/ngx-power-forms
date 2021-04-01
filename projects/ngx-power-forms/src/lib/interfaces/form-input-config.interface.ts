@@ -1,12 +1,13 @@
 import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
 import { FormInputType } from '../constants/form-input-type.constant';
-import { FormInputCheckboxCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig, FormInputTextareaCustomConfig } from './form-input-custom-config.interface';
+import { FormInputCheckboxCustomConfig, FormInputMultiSelectCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig, FormInputTextareaCustomConfig } from './form-input-custom-config.interface';
 
 export type FormInputConfig = FormInputTextConfig
 | FormInputSelectConfig
 | FormInputCheckboxConfig
 | FormInputRadioSetConfig
-| FormInputTextareaConfig;
+| FormInputTextareaConfig
+| FormInputMultiSelectConfig;
 
 export interface FormInputBaseConfig {
   name: string;
@@ -25,6 +26,11 @@ export interface FormInputTextConfig extends FormInputBaseConfig {
 
 export interface FormInputSelectConfig extends FormInputConfigWithCustomConfig<FormInputSelectCustomConfig> {
   type: FormInputType.SELECT;
+}
+
+export interface FormInputMultiSelectConfig extends FormInputConfigWithCustomConfig<FormInputMultiSelectCustomConfig> {
+  type: FormInputType.MULTI_SELECT;
+  value: Array<any>;
 }
 
 export interface FormInputCheckboxConfig extends FormInputConfigWithCustomConfig<FormInputCheckboxCustomConfig> {

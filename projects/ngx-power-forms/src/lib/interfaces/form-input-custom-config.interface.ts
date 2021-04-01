@@ -16,3 +16,7 @@ export interface FormInputRadioSetCustomConfig {
 export interface FormInputTextareaCustomConfig {
   minLines?: number;
 }
+
+export interface FormInputMultiSelectCustomConfig {
+  options: Array<SelectOption> | Observable<SelectOption[]>;
+}
