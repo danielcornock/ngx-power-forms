@@ -1,0 +1,24 @@
+<div class="form-input-container">
+  <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
+  <!-- <ng-select class="form-input-multi-select"
+    [formControl]="formInputField.control"
+    [items]="dropdownOptions"
+    bindLabel="label"
+    bindValue="value"
+    dropdownPosition="auto"
+    [placeholder]="formInputField.placeholder"
+    mutliple="true"></ng-select> -->
+
+    <ng-select 
+      class="form-input-multi-select"
+      [items]="dropdownOptions || (dropdownOptions | async)"
+      [class.is-populated]="formInputField.value.length"
+      bindLabel="label"
+      bindValue="value"
+      [multiple]="true"
+      [placeholder]="formInputField.placeholder"
+      [formControl]="formInputField.control"
+      [clearable]="false"
+      [hideSelected]="true"></ng-select>
+  <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>
+</div>

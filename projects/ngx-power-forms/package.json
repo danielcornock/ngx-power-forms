@@ -6,6 +6,7 @@
     "@angular/core": "^11.0.9"
   },
   "dependencies": {
+    "@ng-select/ng-select": "^6.1.0",
     "tslib": "^2.0.0"
   }
 }

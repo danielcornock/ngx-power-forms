@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { FormInputErrorComponent } from './components/form-input-error/form-input-error.component';
 import { FormInputLabelComponent } from './components/form-input-label/form-input-label.component';
 import { FormInputCheckboxComponent } from './form-input-components/form-input-checkbox/form-input-checkbox.component';
+import { FormInputMultiSelectComponent } from './form-input-components/form-input-multi-select/form-input-multi-select.component';
 import { FormInputNumberComponent } from './form-input-components/form-input-number/form-input-number.component';
 import { FormInputRadioSetComponent } from './form-input-components/form-input-radio-set/form-input-radio-set.component';
 import { FormInputSelectComponent } from './form-input-components/form-input-select/form-input-select.component';
@@ -24,11 +26,14 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputNumberComponent,
     FormInputCheckboxComponent,
     FormInputRadioSetComponent,
-    FormInputTextareaComponent
+    FormInputTextareaComponent,
+    FormInputMultiSelectComponent
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgSelectModule],
   providers: [FormFactory, FormInputFactory],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     FormInputComponent,
     FormInputErrorComponent,
     FormInputSelectComponent,
@@ -36,7 +41,9 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputCheckboxComponent,
     FormInputLabelComponent,
     FormInputRadioSetComponent,
-    FormInputTextareaComponent
+    FormInputTextareaComponent,
+    FormInputMultiSelectComponent,
+    NgSelectModule
   ]
 })
 export class NgxPowerFormsModule {

@@ -100,6 +100,19 @@ export class AppComponent implements OnInit {
           label: 'Text area field',
           type: FormInputType.TEXTAREA,
           validators: [Validators.minLength(20), Validators.maxLength(100)]
+        },
+        {
+          name: 'multiSelectField',
+          label: 'Multi select field',
+          type: FormInputType.MULTI_SELECT,
+          placeholder: 'Select your items',
+          value: [1],
+          customConfig: {
+            options: [
+              { label: 'Option 1', value: 1 },
+              { label: 'Option 2', value: 2 }
+            ]
+          }
         }
       ],
       onSave: (formValue) => console.log(formValue)

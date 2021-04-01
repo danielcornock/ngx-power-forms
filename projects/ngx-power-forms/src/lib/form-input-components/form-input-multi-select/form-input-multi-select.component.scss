@@ -1,0 +1,121 @@
+::ng-deep {
+  .ng-select-container {
+    display: block;
+    background-color: var(--form-input-background-color) !important;
+    padding: var(--form-input-padding);
+    border: var(--form-input-border) !important;
+    border-radius: var(--form-input-border-radius) !important;
+    font-size: var(--form-input-font-size);
+    color: var(--form-input-font-color) !important;
+  
+    &:focus {
+      outline-width: var(--form-input-outline-width--focus);
+      outline-color: var(--form-input-outline-color--focus);
+    }
+  
+    &.is-errored {
+      border-color: var(--form-input-border-color--error);
+      outline-color: var(--form-input-outline-color--error);
+    }
+  }
+
+  .ng-value-container {
+    padding: 0 !important;
+  }
+
+  .ng-placeholder {
+    padding: 0 !important;
+    position: static !important;
+  }
+
+  .ng-input {
+    padding: 0 !important;
+  }
+
+  .ng-value {
+    background-color: var(--form-input-multi-select-option-background-color) !important;
+    color: var(--form-input-multi-select-option-text-color);
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: var(--form-input-multi-select-option-radius) !important;
+  }
+
+  .ng-select-focused {
+    box-shadow: initial !important;
+
+    .ng-select-container {
+      outline: var(--form-input-outline-width--focus) auto var(--form-input-outline-color--focus) !important;
+    }
+  }
+
+  .ng-has-value {
+    padding: calc(var(--form-input-vertical-padding) - 4px) var(--form-input-horizontal-padding);
+    padding-bottom: calc(var(--form-input-vertical-padding) - 5px - 4px);
+  }
+
+  .ng-value-label {
+    font-size: var(--form-input-multi-select-option-font-size) !important;
+    padding: var(--form-input-multi-select-option-padding) !important;
+    line-height: 1;
+  }
+
+  .ng-value-icon {
+    padding: var(--form-input-multi-select-option-padding) !important;
+    border-right: 0 !important;
+    position: relative;
+    line-height: 1;
+
+    &:hover {
+      background-color: initial !important;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(black, 0.1);
+      }
+    }
+  }
+
+  .ng-arrow-wrapper {
+    position: absolute !important;
+    top: 50%;
+    right: var(--form-input-horizontal-padding);
+    transform: translateY(-50%);
+    padding-right: 0 !important;
+    width: auto !important;
+  }
+  
+  .ng-arrow {
+    border-color: var(--form-input-border-color) transparent transparent !important;
+  }
+
+  .ng-dropdown-panel {
+    border-radius: var(--form-input-border-radius) !important;
+    border: 0;
+    box-shadow: initial !important;
+    overflow: hidden;
+    margin-top: 0 !important;
+    border: var(--form-input-multi-select-dropdown-border) !important;
+  }
+
+  .ng-option {
+    padding: var(--form-input-multi-select-dropdown-option-padding) !important;
+    font-size: var(--form-input-multi-select-dropdown-font-size);
+
+    &:hover {
+      background-color: var(--form-input-multi-select-focus-background) !important;
+    }
+  }
+
+  .ng-option-marked {
+    background-color: var(--form-input-multi-select-focus-background) !important;
+  }
+
+  .ng-placeholder {
+    color: var(--form-input-placeholder-color) !important;
+  }
+}

@@ -11,7 +11,9 @@
 
   /* Form input field */
   --form-input-background-color: white;
-  --form-input-padding: 12px;
+  --form-input-vertical-padding: 12px;
+  --form-input-horizontal-padding: 12px;
+  --form-input-padding: var(--form-input-vertical-padding) var(--form-input-horizontal-padding);
   --form-input-border-color: grey;
   --form-input-border: 1px solid var(--form-input-border-color);
   --form-input-border-radius: 5px;
@@ -40,7 +42,7 @@
 
   /* Select */
   --form-input-select-icon-color: var(--form-input-border-color);
-  --form-input-select-icon-spacing: var(--form-input-padding);
+  --form-input-select-icon-spacing: var(--form-input-horizontal-padding);
   
   /* Checkbox */
   --form-input-checkbox-size: 24px;
@@ -61,4 +63,15 @@
 
   /* Textarea */
   --form-input-textarea-line-height: 1.4;
+
+  /* Multi select */
+  --form-input-multi-select-option-background-color: var(--form-input-outline-color--focus);
+  --form-input-multi-select-option-text-color: white;
+  --form-input-multi-select-option-font-size: 14px;
+  --form-input-multi-select-option-padding: 6px 8px;
+  --form-input-multi-select-option-radius: var(--form-input-border-radius);
+  --form-input-multi-select-dropdown-border: 1px solid #ddd;
+  --form-input-multi-select-focus-background: #{rgba(black, 0.05)};
+  --form-input-multi-select-dropdown-font-size: 16px;
+  --form-input-multi-select-dropdown-option-padding: 12px;
 }
