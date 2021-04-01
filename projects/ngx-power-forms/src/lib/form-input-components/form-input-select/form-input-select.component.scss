@@ -2,15 +2,26 @@
   position: relative;
   
   &::after {
-    content: '▼';
+    content: '';
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-25%);
     right: var(--form-input-select-icon-spacing);
     color: var(--form-input-select-icon-color);
+    border-color: var(--form-input-border-color) transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 2.5px;
+    height: 0;
+    width: 0;
   }
 }
 
 .form-input-select-placeholder {
   color: var(--form-input-placeholder-color);
+}
+
+.form-input-select {
+  &.is-empty {
+    color: var(--form-input-placeholder-color);
+  }
 }
