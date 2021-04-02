@@ -3,7 +3,7 @@
 
   <div class="form-input-select-container">
     <select class="form-input form-input-select" [formControl]="formInputField.control"
-      [attr.name]="formInputField.name" [attr.id]="formInputField.name"
+      [name]="formInputField.name" [id]="formInputField.name"
       [class.is-empty]="!formInputField.value">
       <option value="" [selected]="!formInputField.value" disabled>{{ formInputField.placeholder }}</option>
       <option *ngFor="let option of dropdownOptions || (dropdownOptions$ | async)" [attr.value]="option.value">{{

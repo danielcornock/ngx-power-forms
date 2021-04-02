@@ -1,7 +1,7 @@
 <div class="form-input-container">
   <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
 
-  <textarea class="form-input form-input-textarea" [attr.name]="formInputField.name" [attr.id]="formInputField.name" [formControl]="formInputField.control"
+  <textarea class="form-input form-input-textarea" [name]="formInputField.name" [id]="formInputField.name" [formControl]="formInputField.control"
     [class.is-errored]="formInputField.errors$ | async" [placeholder]="formInputField.placeholder" [rows]="formInputField.customConfig?.minLines || 3"></textarea>
 
   <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>

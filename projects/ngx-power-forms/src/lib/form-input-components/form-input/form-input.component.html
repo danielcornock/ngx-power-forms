@@ -2,7 +2,7 @@
   <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
 
   <input class="form-input" [type]="formInputField.type" [class.is-errored]="formInputField.errors$ | async"
-    [placeholder]="formInputField.placeholder" [attr.name]="formInputField.name" [attr.id]="formInputField.name"
+    [placeholder]="formInputField.placeholder" [name]="formInputField.name" [id]="formInputField.name"
     [formControl]="formInputField.control">
 
   <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>
