@@ -113,6 +113,11 @@ export class AppComponent implements OnInit {
               { label: 'Option 2', value: 2 }
             ]
           }
+        },
+        {
+          name: 'dateField',
+          label: 'Date field',
+          type: FormInputType.DATETIME
         }
       ],
       onSave: (formValue) => console.log(formValue)

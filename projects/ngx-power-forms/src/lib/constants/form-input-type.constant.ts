@@ -7,5 +7,7 @@ export enum FormInputType {
   MULTI_SELECT = 'multiSelect',
   CHECKBOX = 'checkbox',
   RADIO = 'radio',
-  TEXTAREA = 'textarea'
+  TEXTAREA = 'textarea',
+  DATETIME = 'datetime-local',
+  MONTH = 'month'
 }

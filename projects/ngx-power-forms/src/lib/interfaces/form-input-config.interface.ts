@@ -20,7 +20,7 @@ export interface FormInputBaseConfig {
 }
 
 export interface FormInputTextConfig extends FormInputBaseConfig {
-  type: FormInputType.TEXT | FormInputType.EMAIL | FormInputType.NUMBER;
+  type: FormInputType.TEXT | FormInputType.EMAIL | FormInputType.NUMBER | FormInputType.DATE | FormInputType.DATETIME | FormInputType.MONTH;
   value?: string | number;
 }
 
