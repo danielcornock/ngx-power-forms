@@ -7,7 +7,7 @@
     border-radius: var(--form-input-border-radius) !important;
     font-size: var(--form-input-font-size);
     color: var(--form-input-font-color) !important;
-  
+
     &:focus {
       outline-width: var(--form-input-outline-width--focus);
       outline-color: var(--form-input-outline-color--focus);
@@ -50,8 +50,17 @@
   }
 
   .ng-has-value {
-    padding: calc(var(--form-input-vertical-padding) - 4px) var(--form-input-horizontal-padding);
-    padding-bottom: calc(var(--form-input-vertical-padding) - 5px - 4px);
+    padding: calc(var(--form-input-vertical-padding) - 4px) var(--form-input-horizontal-padding) !important;
+    padding-bottom: calc(var(--form-input-vertical-padding) - 5px - 4px) !important;
+
+    .ng-input {
+      align-self: stretch;
+
+      input {
+        padding: var(--form-input-multi-select-option-vertical-padding) !important;
+        margin-bottom: 5px;
+      }
+    }
   }
 
   .ng-value-label {
@@ -121,11 +130,8 @@
   }
 
   .ng-input {
-    align-self: stretch;
-
     input {
-      padding: var(--form-input-multi-select-option-vertical-padding) !important;
-      margin-bottom: 5px;
+      padding-left: var(--form-input-multi-select-option-vertical-padding) !important;
     }
   }
 }
