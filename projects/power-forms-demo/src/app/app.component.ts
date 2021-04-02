@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { FormContainer, FormFactory, FormInputField, FormInputType } from 'projects/ngx-power-forms/src/public-api';
+import { FormContainer, FormFactory, FormInputFieldsObject, FormInputType } from 'projects/ngx-power-forms/src/public-api';
 import { of } from 'rxjs';
 
 @Component({
@@ -10,7 +10,7 @@ import { of } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   public form: FormContainer;
-  public fields: Record<string, FormInputField>;
+  public fields: FormInputFieldsObject;
 
   constructor(private formFactory: FormFactory){}
 

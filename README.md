@@ -2,6 +2,8 @@
 
 A library designed to abstract away the repetitive elements of building a form. Takes away a small amount of the flexibility provided by Angular forms, but saves you time in the process. The library is built on top of Angular reactive forms and makes extensive use of observables, to allow for `onPush` change detection.
 
+Demo is available [here](https://ngx-power-forms.netlify.app/).
+
 ## Installation and setup
 
 To install the library, use

@@ -18,9 +18,9 @@ export class FormContainer {
     }, {});
   }
 
-  public save(formValue: FormGroupValue): void {
+  public save(): void {
     if (this.onSaveFn) {
-      this.onSaveFn(formValue);
+      this.onSaveFn(this.formGroup.value);
     }
   }
 
