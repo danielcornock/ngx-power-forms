@@ -1,4 +1,7 @@
 :root {
+  /* Core */
+  --form-input-feature-color: dodgerblue;
+
   /* Form input label */
   --form-input-label-font-size: 14px;
   --form-input-label-margin-bottom: 8px;
@@ -23,7 +26,7 @@
 
   /* Form input field focus states */
   --form-input-outline-width--focus: 1px;
-  --form-input-outline-color--focus: dodgerblue;
+  --form-input-outline-color--focus: var(--form-input-feature-color);
 
   /* Form input field error states */
   --form-input-border-color--error: red;
@@ -48,7 +51,7 @@
   --form-input-checkbox-size: 24px;
   --form-input-checkbox-spacing: 10px;
   --form-input-checkbox-label-font-size: var(--form-input-label-font-size);
-  --form-input-checkbox-check-color: var(--form-input-outline-color--focus);
+  --form-input-checkbox-check-color: var(--form-input-feature-color);
   --form-input-checkbox-inner-size: 12px;
   --form-input-checkbox-label-font-size: 12px;
   --form-input-checkbox-inner-radius: 3px;
@@ -66,7 +69,7 @@
   --form-input-textarea-line-height: 1.4;
 
   /* Multi select */
-  --form-input-multi-select-option-background-color: var(--form-input-outline-color--focus);
+  --form-input-multi-select-option-background-color: var(--form-input-feature-color);
   --form-input-multi-select-option-text-color: white;
   --form-input-multi-select-option-font-size: 14px;
   --form-input-multi-select-option-vertical-padding: 5px;
