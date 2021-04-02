@@ -1,20 +1,17 @@
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { FormInputFieldsObject } from '../interfaces';
 import { FormGroupValue } from '../interfaces/form-group-value.interface';
 import { FormInputField } from './form-input-field';
 
 export class FormContainer {
   constructor(
-    private fields: Array<FormInputField>,
+    public fields: Array<FormInputField>,
     public formGroup: FormGroup,
-    private onSaveFn: (formValue: FormGroupValue) => void | Promise<void>
+    private onSaveFn?: (formValue: FormGroupValue) => void | Promise<void>
   ) {}
 
-  public getOrderedFields(): Array<FormInputField> {
-    return this.fields;
-  }
-
-  public getFieldsObject(): Record<string, FormInputField> {
+  public getFieldsObject(): FormInputFieldsObject {
     return this.fields.reduce((obj: Record<string, FormInputField>, field) => {
       obj[field.name] = field;
       return obj;
@@ -22,7 +19,9 @@ export class FormContainer {
   }
 
   public save(formValue: FormGroupValue): void {
-    this.onSaveFn(formValue);
+    if (this.onSaveFn) {
+      this.onSaveFn(formValue);
+    }
   }
 
   public get value(): FormGroupValue {

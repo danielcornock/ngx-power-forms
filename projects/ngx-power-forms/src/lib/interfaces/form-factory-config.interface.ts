@@ -3,5 +3,5 @@ import { FormInputConfig } from './form-input-config.interface';
 
 export interface FormFactoryConfig {
   fields: Array<FormInputConfig>;
-  onSave(formConfig: FormGroupValue): void | Promise<void>;
+  onSave?(formConfig: FormGroupValue): void | Promise<void>;
 }
