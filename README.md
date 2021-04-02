@@ -176,6 +176,14 @@ To then use these fields in your template, it looks as simple as this:
 </form>
 ```
 
+Alternatively, if you don't need anything in between the form inputs, you can use `pow-form-input-item` to loop through your fields in the order that they were added to the array.
+
+```html
+<form [formGroup]="form.formGroup" (ngSubmit)="form.save()">
+  <pow-form-input-item *ngFor="let field of form.fields" [formInputField]="field"></pow-form-input-item>
+</form>
+```
+
 ## Typings
 
 Typings vary between each form input type. By assigning a value to the `type` field using the `FormInputType` enum, TypeScript is able to determine the intellisense needed, for example requiring `options` in the `customConfig` for select and radio fields.
@@ -273,5 +281,3 @@ Each form input container will by default have 3 CSS classes assigned to it, `fo
 ## Creating custom form components
 
 Coming soon
-
-##
