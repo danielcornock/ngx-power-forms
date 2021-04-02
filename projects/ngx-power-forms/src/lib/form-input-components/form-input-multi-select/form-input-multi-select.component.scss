@@ -45,6 +45,7 @@
 
     .ng-select-container {
       outline: var(--form-input-outline-width--focus) auto var(--form-input-outline-color--focus) !important;
+      box-shadow: initial !important;
     }
   }
 
