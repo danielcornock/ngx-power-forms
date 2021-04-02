@@ -267,3 +267,11 @@ As well as being able to override the classes yourself, the project extensively 
 ```
 
 The form styles have been designed specifically to try and reduce the amount of customisation that you will have to do. They have also been created with accessibility in mind.
+
+Each form input container will by default have 3 CSS classes assigned to it, `form-input-host`, `form-input-host-${formInputType}`, and `form-input-host-${formInputName}` to allow for easy external styling across the whole app. An example of this is the `--form-input-spacing` variable which dictates the default spacing between form input components when displayed next to each other.
+
+## Creating custom form components
+
+Coming soon
+
+##

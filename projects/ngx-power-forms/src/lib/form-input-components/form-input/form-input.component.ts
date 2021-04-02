@@ -11,5 +11,7 @@ export class FormInputComponent<TCustomConfig = unknown> {
   public formInputField: FormInputField<TCustomConfig>;
 
   @HostBinding('class')
-  public classes = 'form-input-host';
+  public get classes(): string {
+    return `form-input-host form-input-host-${this.formInputField.type} form-input-host-${this.formInputField.name}`;
+  }
 }
