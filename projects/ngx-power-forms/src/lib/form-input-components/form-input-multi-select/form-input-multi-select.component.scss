@@ -123,7 +123,8 @@
     align-self: stretch;
 
     input {
-      padding: 6px !important; // TODO: Remove hardcoded value
+      padding: var(--form-input-multi-select-option-vertical-padding) !important;
+      margin-bottom: 5px;
     }
   }
 }
