@@ -1,4 +1,10 @@
-<label class="form-input-label" [attr.for]="formInputField.name" [class.is-errored]="formInputField.errors$ | async">
+<legend *ngIf="formInputField.type === formInputType.RADIO; else label" class="form-input-label"
+  [attr.for]="formInputField.name" [class.is-errored]="formInputField.errors$ | async">
   {{ formInputField.label }}
-  <span *ngIf="formInputField.isRequired && requiredSymbol">{{ requiredSymbol }}</span>
-</label>
+</legend>
+<ng-template #label>
+  <label class="form-input-label" [attr.for]="formInputField.name" [class.is-errored]="formInputField.errors$ | async">
+    {{ formInputField.label }}
+    <span *ngIf="formInputField.isRequired && requiredSymbol">{{ requiredSymbol }}</span>
+  </label>
+</ng-template>

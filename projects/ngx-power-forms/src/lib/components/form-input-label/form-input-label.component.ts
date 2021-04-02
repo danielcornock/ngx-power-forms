@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+import { FormInputType } from '../../constants';
 import { FormInputField } from '../../instances';
 import { PowerFormsModuleCustomOptions } from '../../interfaces/power-forms-module-config.interface';
 import { CustomFormOptions } from '../../providers/custom-form-options.provider';
@@ -13,6 +14,8 @@ export class FormInputLabelComponent {
   public formInputField: FormInputField;
 
   public requiredSymbol?: string;
+
+  public readonly formInputType = FormInputType;
 
   constructor(@Inject(CustomFormOptions) customOptions: PowerFormsModuleCustomOptions) {
     if (customOptions.showRequiredSymbol) {
