@@ -2,14 +2,16 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ComponentFactory,
   ComponentFactoryResolver,
   ComponentRef,
   OnDestroy,
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CustomSelectOptionComponent } from '../../components';
-import { FormInputCustomSelectCustomConfig } from '../../interfaces';
+import { FormInputCustomSelectCustomConfig, SelectOption } from '../../interfaces';
 import { FormInputComponent } from '../form-input/form-input.component';
 
 @Component({
@@ -24,24 +26,30 @@ export class FormInputCustomSelectComponent
   @ViewChild('container', { read: ViewContainerRef })
   public container: ViewContainerRef;
 
-  private components: ComponentRef<CustomSelectOptionComponent>[] = [];
+  protected components: ComponentRef<CustomSelectOptionComponent>[] = [];
 
   constructor(private resolver: ComponentFactoryResolver) {
     super();
   }
 
   public ngAfterViewInit(): void {
-    const factory = this.resolver.resolveComponentFactory(
-      this.formInputField.customConfig?.component ?? CustomSelectOptionComponent
-    );
+    const factory = this.createComponentFactory();
+
+    if (this.formInputField.customConfig.options instanceof Observable) {
+      throw new Error('Observables not supported for this form input type yet.');
+    }
 
     this.formInputField.customConfig.options.forEach((option: any) => {
-      const componentRef = this.container.createComponent(factory);
+      const componentRef  = this.container.createComponent(factory);
+
       componentRef.instance.label = option.label;
       componentRef.instance.value = option.value;
-      componentRef.instance.isSelected = option.value === this.formInputField.value;
+
+      this.setIsSelected(componentRef, option);
+
       componentRef.instance.selected.subscribe((value: any) => this.onSelect(value));
       componentRef.changeDetectorRef.detectChanges();
+
       this.components.push(componentRef);
     });
   }
@@ -52,7 +60,7 @@ export class FormInputCustomSelectComponent
     });
   }
 
-  private onSelect(value: any): void {
+  protected onSelect(value: any): void {
     this.formInputField.setValue(value);
 
     this.components.forEach((component) => {
@@ -64,5 +72,15 @@ export class FormInputCustomSelectComponent
 
       component.changeDetectorRef.detectChanges();
     });
+  }
+
+  protected setIsSelected(componentRef: ComponentRef<CustomSelectOptionComponent>, option: SelectOption): void {
+    componentRef.instance.isSelected = option.value === this.formInputField.value;
+  }
+
+  private createComponentFactory(): ComponentFactory<CustomSelectOptionComponent> {
+    return this.resolver.resolveComponentFactory(
+      this.formInputField.customConfig?.component ?? CustomSelectOptionComponent
+    );
   }
 }

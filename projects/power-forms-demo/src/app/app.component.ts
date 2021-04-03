@@ -128,6 +128,19 @@ export class AppComponent implements OnInit {
             options: [{ label: 'Hello', value: 1 }, { label: 'Yo!', value: 2 }],
             component: CustomSelectOptionComponent
           }
+        },
+        {
+          name: 'customMultiSelect',
+          label: 'Custom multi select',
+          type: FormInputType.CUSTOM_MULTI_SELECT,
+          value: [],
+          customConfig: {
+            options: [
+              { label: 'Option 1', value: 1 },
+              { label: 'Option 2', value: 2 },
+              { label: 'Option 3', value: 3 }
+            ]
+          }
         }
       ],
       onSave: (formValue) => console.log(formValue)

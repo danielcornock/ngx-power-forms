@@ -10,5 +10,6 @@ export enum FormInputType {
   TEXTAREA = 'textarea',
   DATETIME = 'datetime-local',
   MONTH = 'month',
-  CUSTOM_SELECT = 'customSelect'
+  CUSTOM_SELECT = 'customSelect',
+  CUSTOM_MULTI_SELECT = 'customMultiSelect'
 }

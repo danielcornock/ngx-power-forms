@@ -8,7 +8,8 @@ export type FormInputConfig = FormInputTextConfig
 | FormInputRadioSetConfig
 | FormInputTextareaConfig
 | FormInputMultiSelectConfig
-| FormInputCustomSelectConfig;
+| FormInputCustomSelectConfig
+| FormInputCustomMultiSelectConfig;
 
 export interface FormInputBaseConfig {
   name: string;
@@ -51,6 +52,11 @@ export interface FormInputRadioSetConfig extends FormInputConfigWithCustomConfig
 
 export interface FormInputCustomSelectConfig extends FormInputConfigWithCustomConfig<FormInputCustomSelectCustomConfig> {
   type: FormInputType.CUSTOM_SELECT;
+}
+
+export interface FormInputCustomMultiSelectConfig extends FormInputConfigWithCustomConfig<FormInputCustomSelectCustomConfig> {
+  type: FormInputType.CUSTOM_MULTI_SELECT;
+  value: Array<any>;
 }
 
 export interface FormInputConfigWithCustomConfig<T> extends FormInputBaseConfig {
