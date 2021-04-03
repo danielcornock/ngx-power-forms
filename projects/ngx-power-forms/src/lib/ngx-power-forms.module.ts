@@ -2,9 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CustomSelectOptionComponent } from './components';
 import { FormInputErrorComponent } from './components/form-input-error/form-input-error.component';
 import { FormInputLabelComponent } from './components/form-input-label/form-input-label.component';
 import { FormInputCheckboxComponent } from './form-input-components/form-input-checkbox/form-input-checkbox.component';
+import { FormInputCustomSelectComponent } from './form-input-components/form-input-custom-select/form-input-custom-select.component';
 import { FormInputItemComponent } from './form-input-components/form-input-item/form-input-item.component';
 import { FormInputMultiSelectComponent } from './form-input-components/form-input-multi-select/form-input-multi-select.component';
 import { FormInputNumberComponent } from './form-input-components/form-input-number/form-input-number.component';
@@ -29,7 +31,9 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputRadioSetComponent,
     FormInputTextareaComponent,
     FormInputMultiSelectComponent,
-    FormInputItemComponent
+    FormInputItemComponent,
+    FormInputCustomSelectComponent,
+    CustomSelectOptionComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, NgSelectModule],
   providers: [FormFactory, FormInputFactory],
@@ -45,7 +49,9 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputRadioSetComponent,
     FormInputTextareaComponent,
     FormInputMultiSelectComponent,
-    FormInputItemComponent
+    FormInputItemComponent,
+    FormInputCustomSelectComponent,
+    CustomSelectOptionComponent
   ]
 })
 export class NgxPowerFormsModule {

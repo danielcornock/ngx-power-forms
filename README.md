@@ -194,6 +194,10 @@ Typings vary between each form input type. By assigning a value to the `type` fi
 As well as being able to override the classes yourself, the project extensively uses CSS variables. This aims to make the forms as customisable as possible without having to manually override CSS classes, with `!important` sprinkled everywhere.
 
 ```scss
+  /* Core */
+  --form-input-feature-color: dodgerblue;
+  --form-input-error-color: red;
+
   /* Form input label */
   --form-input-label-font-size: 14px;
   --form-input-label-margin-bottom: 8px;
@@ -202,7 +206,7 @@ As well as being able to override the classes yourself, the project extensively 
   --form-input-label-color: grey;
 
   /* Form input label error state */
-  --form-input-label-color--error: red;
+  --form-input-label-color--error: var(--form-input-error-color);
 
   /* Form input field */
   --form-input-background-color: white;
@@ -218,15 +222,14 @@ As well as being able to override the classes yourself, the project extensively 
 
   /* Form input field focus states */
   --form-input-outline-width--focus: 1px;
-  --form-input-outline-color--focus: dodgerblue;
+  --form-input-outline-color--focus: var(--form-input-feature-color);
 
   /* Form input field error states */
-  --form-input-border-color--error: red;
-  --form-input-outline-color--error: red;
+  --form-input-border-color--error: var(--form-input-error-color);
+  --form-input-outline-color--error: var(--form-input-error-color);
 
   /* Form input error text */
-  --form-input-error-color: red;
-  --form-input-error-font-weight: 500;
+  --form-input-error-font-weight: 400;
   --form-input-error-font-size: 14px;
   --form-input-error-spacing-top: 4px;
 
@@ -243,7 +246,7 @@ As well as being able to override the classes yourself, the project extensively 
   --form-input-checkbox-size: 24px;
   --form-input-checkbox-spacing: 10px;
   --form-input-checkbox-label-font-size: var(--form-input-label-font-size);
-  --form-input-checkbox-check-color: var(--form-input-outline-color--focus);
+  --form-input-checkbox-check-color: var(--form-input-feature-color);
   --form-input-checkbox-inner-size: 12px;
   --form-input-checkbox-label-font-size: 12px;
   --form-input-checkbox-inner-radius: 3px;
@@ -261,10 +264,10 @@ As well as being able to override the classes yourself, the project extensively 
   --form-input-textarea-line-height: 1.4;
 
   /* Multi select */
-  --form-input-multi-select-option-background-color: var(--form-input-outline-color--focus);
+  --form-input-multi-select-option-background-color: var(--form-input-feature-color);
   --form-input-multi-select-option-text-color: white;
   --form-input-multi-select-option-font-size: 14px;
-  --form-input-multi-select-option-vertical-padding: 6px;
+  --form-input-multi-select-option-vertical-padding: 5px;
   --form-input-multi-select-option-horizontal-padding: 8px;
   --form-input-multi-select-option-padding: var(--form-input-multi-select-option-vertical-padding) var(--form-input-multi-select-option-horizontal-padding);
   --form-input-multi-select-option-radius: var(--form-input-border-radius);
@@ -278,6 +281,13 @@ The form styles have been designed specifically to try and reduce the amount of 
 
 Each form input container will by default have 3 CSS classes assigned to it, `form-input-host`, `form-input-host-${formInputType}`, and `form-input-host-${formInputName}` to allow for easy external styling across the whole app. An example of this is the `--form-input-spacing` variable which dictates the default spacing between form input components when displayed next to each other.
 
+## Custom components
+
+Some components, such as `FormInputCustomSelect` and `FormInputCustomMultiSelect` can have a component passed in to the custom config when creating the input. This component must extend `CustomSelectOptionComponent`, and then you are free to create a new template and styles to make the custom select option appear however you want.
+
+Create a clickable element that calls the `onSelect` function in the callback, and use the `isSelected` input to style your custom component when it has been selected.
+
+If you want to customise the container of the custom select options, simply target `form-input-custom-select`, or `form-input-custom-multi-select` respectively.
 ## Creating custom form components
 
 Coming soon

@@ -1,0 +1,23 @@
+.custom-select-option-container {
+  border: var(--form-input-border);
+  padding: var(--form-input-padding);
+  border-radius: var(--form-input-border-radius);
+  background-color: var(--form-input-background-color);
+  font-size: var(--form-input-font-size);
+  display: inline-block;
+  margin: 0 5px 5px 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: var(--form-input-outline-width--focus) auto var(--form-input-outline-color--focus);
+  }
+
+  &.is-selected {
+    background-color: var(--form-input-multi-select-option-background-color);
+    color: var(--form-input-multi-select-option-text-color);
+    border-color: var(--form-input-multi-select-option-background-color);
+  }
+}

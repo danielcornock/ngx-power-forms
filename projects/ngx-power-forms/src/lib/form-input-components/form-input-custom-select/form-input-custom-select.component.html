@@ -1,0 +1,9 @@
+<div class="form-input-container">
+  <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
+
+  <div class="form-input-custom-select">
+    <ng-template #container></ng-template>
+  </div>
+
+  <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>
+</div>

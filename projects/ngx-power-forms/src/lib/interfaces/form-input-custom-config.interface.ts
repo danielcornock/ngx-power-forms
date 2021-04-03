@@ -1,4 +1,6 @@
+import { Type } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CustomSelectOptionComponent } from '../components';
 import { SelectOption } from './select-option.interface';
 
 export interface FormInputSelectCustomConfig {
@@ -19,4 +21,8 @@ export interface FormInputTextareaCustomConfig {
 
 export interface FormInputMultiSelectCustomConfig {
   options: Array<SelectOption> | Observable<SelectOption[]>;
+}
+
+export interface FormInputCustomSelectCustomConfig extends FormInputSelectCustomConfig {
+  component?: Type<CustomSelectOptionComponent>;
 }

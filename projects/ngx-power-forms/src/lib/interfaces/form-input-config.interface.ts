@@ -1,13 +1,14 @@
 import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
 import { FormInputType } from '../constants/form-input-type.constant';
-import { FormInputCheckboxCustomConfig, FormInputMultiSelectCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig, FormInputTextareaCustomConfig } from './form-input-custom-config.interface';
+import { FormInputCheckboxCustomConfig, FormInputCustomSelectCustomConfig, FormInputMultiSelectCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig, FormInputTextareaCustomConfig } from './form-input-custom-config.interface';
 
 export type FormInputConfig = FormInputTextConfig
 | FormInputSelectConfig
 | FormInputCheckboxConfig
 | FormInputRadioSetConfig
 | FormInputTextareaConfig
-| FormInputMultiSelectConfig;
+| FormInputMultiSelectConfig
+| FormInputCustomSelectConfig;
 
 export interface FormInputBaseConfig {
   name: string;
@@ -22,6 +23,12 @@ export interface FormInputBaseConfig {
 export interface FormInputTextConfig extends FormInputBaseConfig {
   type: FormInputType.TEXT | FormInputType.EMAIL | FormInputType.NUMBER | FormInputType.DATE | FormInputType.DATETIME | FormInputType.MONTH;
   value?: string | number;
+}
+
+export interface FormInputTextareaConfig extends FormInputBaseConfig {
+  type: FormInputType.TEXTAREA;
+  value?: string;
+  customConfig?: FormInputTextareaCustomConfig;
 }
 
 export interface FormInputSelectConfig extends FormInputConfigWithCustomConfig<FormInputSelectCustomConfig> {
@@ -42,11 +49,10 @@ export interface FormInputRadioSetConfig extends FormInputConfigWithCustomConfig
   type: FormInputType.RADIO;
 }
 
-export interface FormInputTextareaConfig extends FormInputBaseConfig {
-  type: FormInputType.TEXTAREA;
-  value?: string;
-  customConfig?: FormInputTextareaCustomConfig;
+export interface FormInputCustomSelectConfig extends FormInputConfigWithCustomConfig<FormInputCustomSelectCustomConfig> {
+  type: FormInputType.CUSTOM_SELECT;
 }
+
 export interface FormInputConfigWithCustomConfig<T> extends FormInputBaseConfig {
   customConfig: T;
 }

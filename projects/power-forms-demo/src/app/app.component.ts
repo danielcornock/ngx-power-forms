@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { FormContainer, FormFactory, FormInputFieldsObject, FormInputType } from 'projects/ngx-power-forms/src/public-api';
+import { CustomSelectOptionComponent, FormContainer, FormFactory, FormInputFieldsObject, FormInputType } from 'projects/ngx-power-forms/src/public-api';
 import { of } from 'rxjs';
 
 @Component({
@@ -118,6 +118,16 @@ export class AppComponent implements OnInit {
           name: 'dateField',
           label: 'Date field',
           type: FormInputType.DATETIME
+        },
+        {
+          name: 'customSelect',
+          label: 'Custom select',
+          type: FormInputType.CUSTOM_SELECT,
+          value: 1,
+          customConfig: {
+            options: [{ label: 'Hello', value: 1 }, { label: 'Yo!', value: 2 }],
+            component: CustomSelectOptionComponent
+          }
         }
       ],
       onSave: (formValue) => console.log(formValue)

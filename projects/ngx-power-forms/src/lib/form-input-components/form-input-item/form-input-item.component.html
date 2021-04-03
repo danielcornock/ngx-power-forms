@@ -14,6 +14,9 @@
 
   <pow-form-input-textarea *ngSwitchCase="formInputType.TEXTAREA" [formInputField]="formInputField">
   </pow-form-input-textarea>
-  
+
+  <pow-form-input-custom-select *ngSwitchCase="formInputType.CUSTOM_SELECT" [formInputField]="formInputField">
+  </pow-form-input-custom-select>
+
   <pow-form-input *ngSwitchDefault [formInputField]="formInputField"></pow-form-input>
 </ng-container>
