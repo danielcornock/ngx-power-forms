@@ -1,9 +1,11 @@
+import { Type } from '@angular/core';
+import { FormInputComponent } from '../form-input-components';
 import { ErrorDictionary } from './error-dictionary.interface';
 
 export interface PowerFormsModuleConfig {
-  customInputs?: {};
   customErrors?: ErrorDictionary;
   customOptions?: Partial<PowerFormsModuleCustomOptions>;
+  customInputComponents?: Record<string, Type<FormInputComponent>>;
 }
 
 export interface PowerFormsModuleCustomOptions {
