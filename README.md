@@ -12,7 +12,7 @@ To install the library, use
 npm i ngx-power-forms
 ```
 
-Once installed, you should add the `NgxPowerFormsModule` using `forRoot` to a core module. Within `forRoot` you can provide an object to further customise things such as form validation messages and custom components (coming soon).
+Once installed, you should add the `NgxPowerFormsModule` using `forRoot` to a core module. Within `forRoot` you can provide an object to further customise things such as form validation messages, custom components and miscellanious settings.
 
 ```ts
 @NgModule({
@@ -34,20 +34,6 @@ Once installed, you should add the `NgxPowerFormsModule` using `forRoot` to a co
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-```
-
-To access the styles for the project, you should install the stylesheet in to your `angular.json` file.
-
-```json
-"architect": {
-  "build": {
-    "options": {
-      "styles": [
-        "node_modules/ngx-power-forms/src/lib/styles/index.scss",
-      ]
-    }
-  }
-}
 ```
 
 ## Creating a form
