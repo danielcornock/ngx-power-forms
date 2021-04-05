@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { CustomSelectOptionComponent, FormContainer, FormFactory, FormInputFieldsObject, FormInputType } from 'projects/ngx-power-forms/src/public-api';
+import { CustomSelectOptionComponent, FormContainer, FormFactory, FormInputType } from 'projects/ngx-power-forms/src/public-api';
 import { of } from 'rxjs';
 import { FormInputCustomType } from './forms/constants/form-input-custom-type.constant';
 
@@ -11,7 +11,6 @@ import { FormInputCustomType } from './forms/constants/form-input-custom-type.co
 })
 export class AppComponent implements OnInit {
   public form: FormContainer;
-  public fields: FormInputFieldsObject;
 
   constructor(private formFactory: FormFactory){}
 
@@ -156,12 +155,6 @@ export class AppComponent implements OnInit {
         }
       ],
       onSave: (formValue: any) => console.log(formValue)
-    });
-
-    this.fields = this.form.getFieldsObject();
-
-    this.form.value$.subscribe((val: any) => {
-      console.log(this.form.formGroup);
     });
   }
 }

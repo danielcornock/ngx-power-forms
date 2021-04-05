@@ -1,5 +1,7 @@
 <div class="app-container">
   <h1 class="app-heading">Ngx Power Forms</h1>
 
-  <pow-form-input-item *ngFor="let field of form.fields" [formInputField]="field"></pow-form-input-item>
+  <pow-form [formContainer]="form">
+    <input class="app-submit" type="submit" value="Submit form">
+  </pow-form>
 </div>

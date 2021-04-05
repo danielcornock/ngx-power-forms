@@ -184,6 +184,16 @@ Alternatively, if you don't need anything in between the form inputs, you can us
 </form>
 ```
 
+To simplify this even more, we've also added a `pow-form` component, where you simply pass in the `formContainer` instance as an input and then embed your action buttons inside the element.
+
+> If one of your buttons is of type 'submit', the submission of the form will be automatic and the function that to passed to the `onSave` field of the config object will be called.
+
+```html
+<pow-form [formContainer]="form">
+  <input type="submit" value="Submit form">
+</pow-form>
+```
+
 ## Typings
 
 Typings vary between each form input type. By assigning a value to the `type` field using the `FormInputType` enum, TypeScript is able to determine the intellisense needed, for example requiring `options` in the `customConfig` for select and radio fields.

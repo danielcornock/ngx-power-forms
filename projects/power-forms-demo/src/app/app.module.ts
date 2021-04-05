@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormInputType, NgxPowerFormsModule } from 'projects/ngx-power-forms/src/public-api';
+import { NgxPowerFormsModule } from 'projects/ngx-power-forms/src/public-api';
 import { AppComponent } from './app.component';
 import { FormInputRangeComponent } from './forms/components/form-input-range/form-input-range.component';
+import { FormInputCustomType } from './forms/constants/form-input-custom-type.constant';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { FormInputRangeComponent } from './forms/components/form-input-range/for
         required: () => 'Please ensure you fill in this field'
       },
       customInputComponents: {
-        [FormInputType.MONTH]: FormInputRangeComponent
+        [FormInputCustomType.RANGE]: FormInputRangeComponent
       }
     })
   ],

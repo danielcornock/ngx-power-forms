@@ -8,3 +8,18 @@
   font-weight: 500;
   margin-bottom: 40px;
 }
+
+.app-submit {
+  width: 100%;
+  background-color: var(--form-input-feature-color);
+  color: white;
+  padding: var(--form-input-padding);
+  border: 0;
+  border-radius: var(--form-input-border-radius);
+  margin-top: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(dodgerblue, 10%);
+  }
+}
