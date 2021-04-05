@@ -22,7 +22,6 @@ import { CustomFormOptions, getCustomFormOptionsValue } from './providers/custom
 import { ErrorsDictionary, getErrorDictionaryValue } from './providers/error-dictionary.provider';
 import { FormFactory } from './services/form-factory/form-factory.service';
 import { FormInputFactory } from './services/form-input-factory/form-input-factory.service';
-import { StyleComponent } from './components/style/style.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +38,7 @@ import { StyleComponent } from './components/style/style.component';
     FormInputCustomSelectComponent,
     CustomSelectOptionComponent,
     FormInputCustomMultiSelectComponent,
-    FormComponent,
-    StyleComponent
+    FormComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, NgSelectModule],
   providers: [FormFactory, FormInputFactory],
