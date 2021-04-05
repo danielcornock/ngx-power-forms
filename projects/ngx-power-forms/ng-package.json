@@ -9,5 +9,8 @@
   },
   "allowedNonPeerDependencies": [
     "@ng-select/ng-select"
+  ],
+  "assets": [
+    "./src/lib/styles"
   ]
 }

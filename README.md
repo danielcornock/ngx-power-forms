@@ -36,6 +36,20 @@ Once installed, you should add the `NgxPowerFormsModule` using `forRoot` to a co
 export class AppModule {}
 ```
 
+To access the styles for the project, you should install the stylesheet in to your `angular.json` file.
+
+```json
+"architect": {
+  "build": {
+    "options": {
+      "styles": [
+        "node_modules/ngx-power-forms/src/lib/styles/index.scss",
+      ]
+    }
+  }
+}
+```
+
 ## Creating a form
 
 To create your first form, you can use the `FormFactory` service.
