@@ -394,7 +394,7 @@ As you can see in this example, we have referenced fields inside `customConfig`,
 
 If your component follows the normal style of an input (i.e. looks like a text box), you should apply the `form-input` class to the input. This will ensure that the styles are consistent with the rest of the inputs. In this case however, the slider field does not follow the usual structure, so we have omitted that CSS class.
 
-### Integrating with `pow-form-input-item`
+### Integrating with the dynamic form
 
 Finally, if we want our custom component to be able to be integrated with the `pow-form` or `pow-form-input-item` components, we need to pass our component in to our library using the `forRoot` method on the library module.
 
