@@ -1,7 +1,7 @@
 <div class="form-input-container">
   <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
 
-  <div class="form-input-custom-select">
+  <div class="form-input-custom-select" [class.is-disabled]="formInputField.isDisabled">
     <ng-template #container></ng-template>
   </div>
 
