@@ -1,16 +1,22 @@
 import { InjectionToken, Type } from '@angular/core';
 import { FormInputType } from '../constants';
 import { FormInputComponent } from '../form-input-components';
-import { PowerFormsModuleCustomOptions } from '../interfaces';
-
-export const defaultcustomInputComponents = {};
 
 export const CustomInputComponents = new InjectionToken('customInputComponentsToken');
 
+export interface PowerFormsModuleCustomComponents {
+  [key: string]: Type<FormInputComponent>;
+}
+
 export function getCustomInputComponentsValue(
-  customComponents?: Record<string, Type<FormInputComponent>>
-): Record<string, PowerFormsModuleCustomOptions> {
+  customComponents?: PowerFormsModuleCustomComponents
+): PowerFormsModuleCustomComponents {
   const customKeys = Object.keys(customComponents || {});
+
+  if (!customKeys.length) {
+    return {};
+  }
+
   const builtInKeys = Object.values(FormInputType);
 
   customKeys.forEach((customKey) => {
@@ -20,7 +26,6 @@ export function getCustomInputComponentsValue(
   });
 
   return {
-    ...defaultcustomInputComponents,
     ...customComponents
   };
 }

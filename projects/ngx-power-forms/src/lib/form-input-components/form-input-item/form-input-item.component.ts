@@ -1,7 +1,7 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentFactoryResolver, ComponentRef, HostBinding, Inject, Input, OnDestroy, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentFactoryResolver, ComponentRef, HostBinding, Inject, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormInputType } from '../../constants';
 import { FormInputField } from '../../instances';
-import { CustomInputComponents } from '../../providers/custom-components.provider';
+import { CustomInputComponents, PowerFormsModuleCustomComponents } from '../../providers/custom-components.provider';
 import { FormInputComponent } from '../form-input/form-input.component';
 
 @Component({
@@ -27,7 +27,7 @@ export class FormInputItemComponent implements OnInit, AfterViewInit, OnDestroy 
 
   constructor(
     @Inject(CustomInputComponents)
-    private customComponents: Record<string, Type<FormInputComponent>>,
+    private customComponents: PowerFormsModuleCustomComponents,
     private resolver: ComponentFactoryResolver
   ) {}
 
