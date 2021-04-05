@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:app": "ng build --project=power-forms-demo"
+    "build:app": "ng build --prod --project=power-forms-demo",
+    "build:forms": "ng build --prod --project=ngx-power-forms"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
     "@ng-select/ng-select": "^6.1.0",
+    "ngx-power-forms": "0.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
