@@ -281,7 +281,7 @@ The form styles have been designed specifically to try and reduce the amount of 
 
 Each form input container will by default have 3 CSS classes assigned to it, `form-input-host`, `form-input-host-${formInputType}`, and `form-input-host-${formInputName}` to allow for easy external styling across the whole app. An example of this is the `--form-input-spacing` variable which dictates the default spacing between form input components when displayed next to each other.
 
-## Custom components
+## Custom option components
 
 Some components, such as `FormInputCustomSelect` and `FormInputCustomMultiSelect` can have a component passed in to the custom config when creating the input. This component must extend `CustomSelectOptionComponent`, and then you are free to create a new template and styles to make the custom select option appear however you want.
 
@@ -290,4 +290,115 @@ Create a clickable element that calls the `onSelect` function in the callback, a
 If you want to customise the container of the custom select options, simply target `form-input-custom-select`, or `form-input-custom-multi-select` respectively.
 ## Creating custom form components
 
-Coming soon
+To integrate your own component in to the framework, there are a few things that you need to set up. The first thing is to extend the libraries types to allow you to define a custom config interface for your component.
+
+For this example, we will be adding our own 'range' component.
+
+It is recommended to create a new directory, whether it be in your shared folder or as a new module, named `forms`.
+
+### Extending the types
+
+First, lets create a new enum to hold our new form input type.
+
+```ts
+export enum FormInputCustomType {
+  RANGE = 'range'
+};
+```
+
+Then, create a new interface file. We've called ours `form-input-range-config.interface.ts`.
+
+In this file, we want to create two interfaces.
+
+```ts
+export interface FormInputRangeConfig extends FormInputBaseConfig {
+  type: FormInputCustomType.RANGE;
+  customConfig: FormInputRangeCustomConfig;
+  value: number;
+}
+
+export interface FormInputRangeCustomConfig {
+  min: number;
+  max: number;
+  step: number;
+}
+```
+
+The first interface defines the object that we will need to pass in to the arguments to our form input creation method. In here you should extend `FormInputBaseConfig`, and override the type with the value of the enum that we have just created. We've also overriden the `value` field, as we want to make it require a `number`.
+
+Finally, if our new component will have any extra config that is not part of a standard input, we want to create a new interface below it and assign that interface to the `customConfig` field on the primary config interface.
+
+For this example we will require a `min`, `max` and `step` fields in order to configure our slider.
+
+Finally, we need to integrate this interface with the library. Create a new types file in this directory called `power-forms.d.ts`, and paste the following in to the file.
+
+```ts
+declare module 'ngx-power-forms' {
+  interface FormInputConfigMap {
+    [FormInputCustomType.RANGE]: FormInputRangeConfig;
+  }
+}
+```
+
+Once this is done, when you are creating a new input using the `FormInputFactory` or `FormFactory`, if you try to create an input with a `type` of `FormInputCustomField.RANGE`, the intellisense will match the interface to the one you previously created, and typescript will make sure that you provide the correct parameters.
+
+### Creating the component
+
+To create a custom component that can be integrated in to the framework, first generate an Angular component using the CLI, and extend this component from `FormInputComponent`. You should pass your `customConfig` interface to the extended `FormInputComponent` as a generic, if your component has a `customConfig` object.
+
+```ts
+@Component({
+  selector: 'app-form-input-range',
+  templateUrl: './form-input-range.component.html',
+  styleUrls: ['./form-input-range.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class FormInputRangeComponent extends FormInputComponent<FormInputRangeCustomConfig> {}
+```
+
+You are free to build the template however you wish, however it is recommended to try to stick to the following structure for consistency. The example below is an implementation of our custom built slider.
+
+```html
+<div class="form-input-container">
+  <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
+
+  <input class="form-input-range"
+    type="range"
+    [name]="formInputField.name"
+    [id]="formInputField.name"
+    [formControl]="formInputField.control"
+    [min]="formInputField.customConfig.min"
+    [max]="formInputField.customConfig.max"
+    [step]="formInputField.customConfig.step">
+
+  <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>
+</div>
+```
+
+As you can see in this example, we have referenced fields inside `customConfig`, and the Angular language service knows that `min`, `max` and `step` are all a part of the `customConfig` object for this component because of the generic that we passed through to the base class.
+
+If your component follows the normal style of an input (i.e. looks like a text box), you should apply the `form-input` class to the input. This will ensure that the styles are consistent with the rest of the inputs. In this case however, the slider field does not follow the usual structure, so we have omitted that CSS class.
+
+### Integrating with `pow-form-input-item`
+
+Finally, if we want our custom component to be able to be integrated with the `pow-form` or `pow-form-input-item` components, we need to pass our component in to our library using the `forRoot` method on the library module.
+
+```ts
+@NgModule({
+  declarations: [
+    AppComponent,
+    FormInputRangeComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgxPowerFormsModule.forRoot({
+      CustomInputComponents: {
+        [FormInputCustomType.RANGE]: FormInputRangeComponent
+      }
+    })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```

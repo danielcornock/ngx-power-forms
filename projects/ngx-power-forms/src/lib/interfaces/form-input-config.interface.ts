@@ -2,14 +2,18 @@ import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
 import { FormInputType } from '../constants/form-input-type.constant';
 import { FormInputCheckboxCustomConfig, FormInputCustomSelectCustomConfig, FormInputMultiSelectCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig, FormInputTextareaCustomConfig } from './form-input-custom-config.interface';
 
-export type FormInputConfig = FormInputTextConfig
-| FormInputSelectConfig
-| FormInputCheckboxConfig
-| FormInputRadioSetConfig
-| FormInputTextareaConfig
-| FormInputMultiSelectConfig
-| FormInputCustomSelectConfig
-| FormInputCustomMultiSelectConfig;
+export interface FormInputConfigMap {
+  [FormInputType.TEXT]: FormInputTextConfig;
+  [FormInputType.SELECT]: FormInputSelectConfig;
+  [FormInputType.CHECKBOX]: FormInputCheckboxConfig;
+  [FormInputType.RADIO]: FormInputRadioSetConfig;
+  [FormInputType.TEXTAREA]: FormInputTextareaConfig;
+  [FormInputType.MULTI_SELECT]: FormInputMultiSelectConfig;
+  [FormInputType.CUSTOM_SELECT]: FormInputCustomSelectConfig;
+  [FormInputType.CUSTOM_MULTI_SELECT]: FormInputCustomMultiSelectConfig;
+}
+
+export type FormInputConfig = FormInputConfigMap[keyof FormInputConfigMap];
 
 export interface FormInputBaseConfig {
   name: string;

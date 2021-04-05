@@ -8,7 +8,7 @@ export class FormInputField<TCustomConfig = any> {
   public name: string;
   public label: string;
   public control: FormControl;
-  public type: FormInputType;
+  public type: FormInputType | string;
   public placeholder: string;
 
   public customConfig: TCustomConfig;
@@ -40,6 +40,6 @@ export class FormInputField<TCustomConfig = any> {
   }
 
   public setError(value: Record<string, any>): void {
-    this.control.setErrors(value)
+    this.control.setErrors(value);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { CustomSelectOptionComponent, FormContainer, FormFactory, FormInputFieldsObject, FormInputType } from 'projects/ngx-power-forms/src/public-api';
 import { of } from 'rxjs';
+import { FormInputCustomType } from './forms/constants/form-input-custom-type.constant';
 
 @Component({
   selector: 'app-root',
@@ -141,14 +142,25 @@ export class AppComponent implements OnInit {
               { label: 'Option 3', value: 3 }
             ]
           }
+        },
+        {
+          name: 'customField',
+          label: 'User created custom range field',
+          type: FormInputCustomType.RANGE,
+          value: 50,
+          customConfig: {
+            min: 0,
+            max: 100,
+            step: 10
+          }
         }
       ],
-      onSave: (formValue) => console.log(formValue)
+      onSave: (formValue: any) => console.log(formValue)
     });
 
     this.fields = this.form.getFieldsObject();
 
-    this.form.value$.subscribe(val => {
+    this.form.value$.subscribe((val: any) => {
       console.log(this.form.formGroup);
     });
   }

@@ -16,7 +16,7 @@ import { FormInputSelectComponent } from './form-input-components/form-input-sel
 import { FormInputTextareaComponent } from './form-input-components/form-input-textarea/form-input-textarea.component';
 import { FormInputComponent } from './form-input-components/form-input/form-input.component';
 import { PowerFormsModuleConfig } from './interfaces/power-forms-module-config.interface';
-import { customInputComponents, getcustomInputComponentsValue } from './providers/custom-components.provider';
+import { CustomInputComponents, getCustomInputComponentsValue } from './providers/custom-components.provider';
 import { CustomFormOptions, getCustomFormOptionsValue } from './providers/custom-form-options.provider';
 import { ErrorsDictionary, getErrorDictionaryValue } from './providers/error-dictionary.provider';
 import { FormFactory } from './services/form-factory/form-factory.service';
@@ -71,7 +71,7 @@ export class NgxPowerFormsModule {
       providers: [
         { provide: ErrorsDictionary, useValue: getErrorDictionaryValue(config?.customErrors) },
         { provide: CustomFormOptions, useValue: getCustomFormOptionsValue(config?.customOptions) },
-        { provide: customInputComponents, useValue: getcustomInputComponentsValue(config?.customInputComponents) }
+        { provide: CustomInputComponents, useValue: getCustomInputComponentsValue(config?.customInputComponents) }
       ]
     };
   }

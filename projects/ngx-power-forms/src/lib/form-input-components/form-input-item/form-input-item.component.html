@@ -1,25 +1,31 @@
-<ng-container [ngSwitch]="formInputField.type">
-  <pow-form-input-checkbox *ngSwitchCase="formInputType.CHECKBOX" [formInputField]="formInputField">
-  </pow-form-input-checkbox>
-
-  <pow-form-input-multi-select *ngSwitchCase="formInputType.MULTI_SELECT" [formInputField]="formInputField">
-  </pow-form-input-multi-select>
-
-  <pow-form-input-number *ngSwitchCase="formInputType.NUMBER" [formInputField]="formInputField"></pow-form-input-number>
-
-  <pow-form-input-radio-set *ngSwitchCase="formInputType.RADIO" [formInputField]="formInputField">
-  </pow-form-input-radio-set>
-
-  <pow-form-input-select *ngSwitchCase="formInputType.SELECT" [formInputField]="formInputField"></pow-form-input-select>
-
-  <pow-form-input-textarea *ngSwitchCase="formInputType.TEXTAREA" [formInputField]="formInputField">
-  </pow-form-input-textarea>
-
-  <pow-form-input-custom-select *ngSwitchCase="formInputType.CUSTOM_SELECT" [formInputField]="formInputField">
-  </pow-form-input-custom-select>
-
-  <pow-form-input-custom-multi-select *ngSwitchCase="formInputType.CUSTOM_MULTI_SELECT" [formInputField]="formInputField">
-  </pow-form-input-custom-multi-select>
-
-  <pow-form-input *ngSwitchDefault [formInputField]="formInputField"></pow-form-input>
+<ng-container *ngIf="isCustomComponent; else default">
+  <ng-template #container></ng-template>
 </ng-container>
+
+<ng-template #default>
+  <ng-container [ngSwitch]="formInputField.type">
+    <pow-form-input-checkbox *ngSwitchCase="formInputType.CHECKBOX" [formInputField]="formInputField">
+    </pow-form-input-checkbox>
+  
+    <pow-form-input-multi-select *ngSwitchCase="formInputType.MULTI_SELECT" [formInputField]="formInputField">
+    </pow-form-input-multi-select>
+  
+    <pow-form-input-number *ngSwitchCase="formInputType.NUMBER" [formInputField]="formInputField"></pow-form-input-number>
+  
+    <pow-form-input-radio-set *ngSwitchCase="formInputType.RADIO" [formInputField]="formInputField">
+    </pow-form-input-radio-set>
+  
+    <pow-form-input-select *ngSwitchCase="formInputType.SELECT" [formInputField]="formInputField"></pow-form-input-select>
+  
+    <pow-form-input-textarea *ngSwitchCase="formInputType.TEXTAREA" [formInputField]="formInputField">
+    </pow-form-input-textarea>
+  
+    <pow-form-input-custom-select *ngSwitchCase="formInputType.CUSTOM_SELECT" [formInputField]="formInputField">
+    </pow-form-input-custom-select>
+  
+    <pow-form-input-custom-multi-select *ngSwitchCase="formInputType.CUSTOM_MULTI_SELECT" [formInputField]="formInputField">
+    </pow-form-input-custom-multi-select>
+    
+    <pow-form-input *ngSwitchDefault [formInputField]="formInputField"></pow-form-input>
+  </ng-container>
+</ng-template>

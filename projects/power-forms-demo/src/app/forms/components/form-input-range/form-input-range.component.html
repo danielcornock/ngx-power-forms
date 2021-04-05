@@ -1,0 +1,14 @@
+<div class="form-input-container">
+  <pow-form-input-label [formInputField]="formInputField"></pow-form-input-label>
+
+  <input class="form-input-range"
+    type="range"
+    [name]="formInputField.name"
+    [id]="formInputField.name"
+    [formControl]="formInputField.control"
+    [min]="formInputField.customConfig.min"
+    [max]="formInputField.customConfig.max"
+    [step]="formInputField.customConfig.step">
+
+  <pow-form-input-error [errors]="formInputField.errors$ | async"></pow-form-input-error>
+</div>
