@@ -2,7 +2,7 @@ import { FormControl, ValidationErrors, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FormInputType } from '../constants/form-input-type.constant';
-import { FormInputConfig, FormInputConfigWithCustomConfig } from '../interfaces/form-input-config.interface';
+import { FormInputConfig, FormInputConfigWithCustomConfig, FormInputTextConfig } from '../interfaces/form-input-config.interface';
 
 export class FormInputField<TCustomConfig = any> {
   public name: string;
@@ -22,8 +22,8 @@ export class FormInputField<TCustomConfig = any> {
     this.control = control;
     this.name = config.name;
     this.label = config.label;
-    this.placeholder = config.placeholder ?? '';
     this.type = config.type;
+    this.placeholder = (config as FormInputTextConfig).placeholder ?? '';
     this.customConfig = (config as FormInputConfigWithCustomConfig<any>).customConfig;
 
     this.isRequired = config.validators?.includes(Validators.required) ?? false;

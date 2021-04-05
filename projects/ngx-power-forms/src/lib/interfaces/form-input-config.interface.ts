@@ -45,12 +45,12 @@ export interface FormInputMultiSelectConfig extends FormInputConfigWithCustomCon
   value: Array<any>;
 }
 
-export interface FormInputCheckboxConfig extends FormInputConfigWithCustomConfig<FormInputCheckboxCustomConfig> {
+export interface FormInputCheckboxConfig extends OmitPlaceholder<FormInputConfigWithCustomConfig<FormInputCheckboxCustomConfig>> {
   type: FormInputType.CHECKBOX;
   value?: boolean;
 }
 
-export interface FormInputRadioSetConfig extends FormInputConfigWithCustomConfig<FormInputRadioSetCustomConfig> {
+export interface FormInputRadioSetConfig extends OmitPlaceholder<FormInputConfigWithCustomConfig<FormInputRadioSetCustomConfig>> {
   type: FormInputType.RADIO;
 }
 
@@ -66,3 +66,5 @@ export interface FormInputCustomMultiSelectConfig extends FormInputConfigWithCus
 export interface FormInputConfigWithCustomConfig<T> extends FormInputBaseConfig {
   customConfig: T;
 }
+
+type OmitPlaceholder<T> = Omit<T, 'placeholder'>;
