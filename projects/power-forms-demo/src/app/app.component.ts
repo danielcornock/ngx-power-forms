@@ -74,8 +74,7 @@ export class AppComponent implements OnInit {
           name: 'checkboxField',
           label: 'Checkbox field',
           type: FormInputType.CHECKBOX,
-          customConfig: {},
-          disabled: true
+          customConfig: {}
         },
         {
           name: 'radioField',
