@@ -61,6 +61,10 @@ export class FormInputCustomSelectComponent
   }
 
   protected onSelect(value: any): void {
+    if (this.formInputField.isDisabled) {
+      return;
+    }
+
     this.formInputField.setValue(value);
 
     this.components.forEach((component) => {

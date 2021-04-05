@@ -135,4 +135,11 @@
       padding-left: var(--form-input-multi-select-option-vertical-padding) !important;
     }
   }
+
+  .ng-select-disabled {
+    .ng-select-container {
+      opacity: var(--form-input-opacity--disabled);
+      border-style: var(--form-input-border-style--disabled) !important;
+    }
+  }
 }

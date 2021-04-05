@@ -12,6 +12,17 @@
       outline: var(--form-input-outline-width--focus) auto var(--form-input-outline-color--focus);
     }
   }
+
+  &:disabled {
+    & + .form-input-checkbox {
+      border-style: var(--form-input-border-style--disabled);
+      opacity: var(--form-input-opacity--disabled);
+    }
+
+    & ~ .form-input-checkbox-label {
+      opacity: var(--form-input-opacity--disabled);
+    }
+  }
 }
 
 .form-input-checkbox {

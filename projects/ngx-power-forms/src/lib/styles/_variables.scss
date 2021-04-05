@@ -25,6 +25,10 @@
   --form-input-font-color: black;
   --form-input-placeholder-color: grey;
 
+  /* Form input field disabled states */
+  --form-input-border-style--disabled: dashed;
+  --form-input-opacity--disabled: 0.5;
+
   /* Form input field focus states */
   --form-input-outline-width--focus: 1px;
   --form-input-outline-color--focus: var(--form-input-feature-color);

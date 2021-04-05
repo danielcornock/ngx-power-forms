@@ -11,7 +11,7 @@ export class FormInputFactory {
   constructor(private formBuilder: FormBuilder) { }
 
   public create(config: FormInputConfig): FormInputField {
-    const control = this.formBuilder.control(config.value, {
+    const control = this.formBuilder.control({ value: config.value, disabled: config.disabled }, {
       validators: config.validators ?? [],
       asyncValidators: config.asyncValidators ?? []
     });

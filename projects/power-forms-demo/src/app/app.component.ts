@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { CustomSelectOptionComponent, FormContainer, FormFactory, FormInputType } from 'projects/ngx-power-forms/src/public-api';
 import { of } from 'rxjs';
@@ -7,10 +7,13 @@ import { FormInputCustomType } from './forms/constants/form-input-custom-type.co
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   public form: FormContainer;
+
+  private isDisabled: boolean;
 
   constructor(private formFactory: FormFactory){}
 
@@ -71,7 +74,8 @@ export class AppComponent implements OnInit {
           name: 'checkboxField',
           label: 'Checkbox field',
           type: FormInputType.CHECKBOX,
-          customConfig: {}
+          customConfig: {},
+          disabled: true
         },
         {
           name: 'radioField',
@@ -117,7 +121,7 @@ export class AppComponent implements OnInit {
         {
           name: 'dateField',
           label: 'Date field',
-          type: FormInputType.DATETIME
+          type: FormInputType.DATETIME,
         },
         {
           name: 'customSelect',
@@ -152,9 +156,28 @@ export class AppComponent implements OnInit {
             max: 100,
             step: 10
           }
+        },
+        {
+          name: 'disabledField',
+          label: 'Disabled field by default',
+          type: FormInputType.TEXT,
+          placeholder: 'You cannot type in me unless you enable me',
+          disabled: true
         }
       ],
-      onSave: (formValue: any) => console.log(formValue)
+      onSave: (formValue: any) => {
+        console.log(formValue);
+      }
     });
+  }
+
+  public toggleDisabled(): void {
+    if (this.isDisabled) {
+      this.form.setDisabled(false);
+      this.isDisabled = false;
+    } else {
+      this.form.setDisabled(true);
+      this.isDisabled = true;
+    }
   }
 }

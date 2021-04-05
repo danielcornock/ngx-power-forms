@@ -31,4 +31,12 @@ export class FormContainer {
   public get value$(): Observable<FormGroupValue> {
     return this.formGroup.valueChanges;
   }
+
+  public setDisabled(isDisabled: boolean): void {
+    if (isDisabled) {
+      this.formGroup.disable();
+    } else {
+      this.formGroup.enable();
+    }
+  }
 }

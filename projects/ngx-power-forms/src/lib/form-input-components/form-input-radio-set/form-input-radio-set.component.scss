@@ -22,6 +22,17 @@
       border: 2px solid var(--form-input-outline-color--focus);
     }
   }
+
+  &:disabled {
+    & + .form-input-radio {
+      border-style: var(--form-input-border-style--disabled);
+      opacity: var(--form-input-opacity--disabled);
+    }
+
+    & ~ .form-input-radio-label {
+      opacity: var(--form-input-opacity--disabled);
+    }
+  }
 }
 
 .form-input-radio {

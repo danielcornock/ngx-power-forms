@@ -77,7 +77,8 @@ export class AppComponent implements OnInit {
           type: FormInputType.TEXT,
           value: 'Starting value',
           placeholder: 'Placeholder text',
-          validators: [Validators.required]
+          validators: [Validators.required],
+          disabled: true
         },
         {
           name: 'selectField',
@@ -230,6 +231,10 @@ As well as being able to override the classes yourself, the project extensively 
   --form-input-font-color: black;
   --form-input-placeholder-color: grey;
 
+  /* Form input field disabled states */
+  --form-input-border-style--disabled: dashed;
+  --form-input-opacity--disabled: 0.5;
+
   /* Form input field focus states */
   --form-input-outline-width--focus: 1px;
   --form-input-outline-color--focus: var(--form-input-feature-color);
@@ -277,7 +282,7 @@ As well as being able to override the classes yourself, the project extensively 
   --form-input-multi-select-option-background-color: var(--form-input-feature-color);
   --form-input-multi-select-option-text-color: white;
   --form-input-multi-select-option-font-size: 14px;
-  --form-input-multi-select-option-vertical-padding: 5px;
+  --form-input-multi-select-option-vertical-padding: 9px;
   --form-input-multi-select-option-horizontal-padding: 8px;
   --form-input-multi-select-option-padding: var(--form-input-multi-select-option-vertical-padding) var(--form-input-multi-select-option-horizontal-padding);
   --form-input-multi-select-option-radius: var(--form-input-border-radius);
@@ -287,7 +292,7 @@ As well as being able to override the classes yourself, the project extensively 
   --form-input-multi-select-dropdown-option-padding: 12px;
 ```
 
-The form styles have been designed specifically to try and reduce the amount of customisation that you will have to do. They have also been created with accessibility in mind.
+The form styles have been designed specifically to try and reduce the amount of customisation that you will have to do. They have also been created with accessibility in mind. You can overwrite the variables by using a `:root` tag in your global stylesheet.
 
 Each form input container will by default have 3 CSS classes assigned to it, `form-input-host`, `form-input-host-${formInputType}`, and `form-input-host-${formInputName}` to allow for easy external styling across the whole app. An example of this is the `--form-input-spacing` variable which dictates the default spacing between form input components when displayed next to each other.
 

@@ -23,3 +23,18 @@
     background-color: darken(dodgerblue, 10%);
   }
 }
+
+.app-toggle {
+  width: 100%;
+  background-color: orangered;
+  color: white;
+  padding: var(--form-input-padding);
+  border: 0;
+  border-radius: var(--form-input-border-radius);
+  margin-top: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(orangered, 10%);
+  }
+}

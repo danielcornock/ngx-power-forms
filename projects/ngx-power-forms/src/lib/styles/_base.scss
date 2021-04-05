@@ -37,6 +37,11 @@
   &::placeholder {
     color: var(--form-input-placeholder-color);
   }
+
+  &:disabled {
+    opacity: var(--form-input-opacity--disabled);
+    border-style: var(--form-input-border-style--disabled);
+  }
 }
 
 .form-input-error {

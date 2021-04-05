@@ -1,0 +1,5 @@
+.form-input-custom-multi-select {
+  &.is-disabled {
+    opacity: var(--form-input-opacity--disabled);
+  }
+}

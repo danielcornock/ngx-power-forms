@@ -21,6 +21,7 @@ export interface FormInputBaseConfig {
   type: FormInputType | string;
   value?: any;
   placeholder?: string;
+  disabled?: boolean;
   validators?: Array<ValidatorFn>;
   asyncValidators?: Array<AsyncValidatorFn>;
 }

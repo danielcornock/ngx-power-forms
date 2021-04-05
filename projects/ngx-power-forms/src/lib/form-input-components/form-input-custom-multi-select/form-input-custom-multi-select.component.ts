@@ -19,6 +19,10 @@ export class FormInputCustomMultiSelectComponent extends FormInputCustomSelectCo
   }
 
   protected onSelect(value: any): void {
+    if (this.formInputField.isDisabled) {
+      return;
+    }
+
     if (this.formInputField.value.includes(value)) {
       const newValue = this.formInputField.value.filter((selected: any) => selected !== value);
       this.formInputField.setValue(newValue);
