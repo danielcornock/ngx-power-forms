@@ -407,7 +407,7 @@ Finally, if we want our custom component to be able to be integrated with the `p
   imports: [
     BrowserModule,
     NgxPowerFormsModule.forRoot({
-      CustomInputComponents: {
+      customInputComponents: {
         [FormInputCustomType.RANGE]: FormInputRangeComponent
       }
     })
