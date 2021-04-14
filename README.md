@@ -150,6 +150,45 @@ export class AppComponent implements OnInit {
           name: 'dateField',
           label: 'Date field',
           type: FormInputType.DATETIME
+        },
+                {
+          name: 'customSelect',
+          label: 'Custom select',
+          type: FormInputType.CUSTOM_SELECT,
+          value: 1,
+          customConfig: {
+            options: [{ label: 'Hello', value: 1 }, { label: 'Yo!', value: 2 }],
+            component: CustomSelectOptionComponent
+          }
+        },
+        {
+          name: 'customMultiSelect',
+          label: 'Custom multi select',
+          type: FormInputType.CUSTOM_MULTI_SELECT,
+          value: [],
+          customConfig: {
+            options: [
+              { label: 'Option 1', value: 1 },
+              { label: 'Option 2', value: 2 },
+              { label: 'Option 3', value: 3 }
+            ]
+          }
+        },
+        {
+          name: 'resultTextField',
+          label: 'This is disabled when the previous checkbox is not checked',
+          type: FormInputType.TEXT,
+          hooks: {
+            onInit: (field) => {
+              const decidingCheckbox = this.form.getField('checkboxField');
+
+              if (decidingCheckbox) {
+                decidingCheckbox.value$.pipe(startWith(decidingCheckbox.value)).subscribe((val) => {
+                  field.setDisabled(!val);
+                });
+              }
+            }
+          }
         }
       ],
       onSave: (formValue) => console.log(formValue)
@@ -195,9 +234,22 @@ To simplify this even more, we've also added a `pow-form` component, where you s
 </pow-form>
 ```
 
-## Typings
+## Typings & interfaces
 
 Typings vary between each form input type. By assigning a value to the `type` field using the `FormInputType` enum, TypeScript is able to determine the intellisense needed, for example requiring `options` in the `customConfig` for select and radio fields.
+
+| Field           	| Description                                                                                                                                                                                                      	|
+|-----------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| name            	| The key used for the form group. When getting the value of a containing form, this is the key that the value will be assigned to.                                                                                	|
+| label           	| The label that will be displayed with your form input.                                                                                                                                                           	|
+| type            	| The type of the form input. Used to determine which component to display when using a dynamic form, or passed straight in to the input type value (e.g. input[type=email]). Can be configured with custom types. 	|
+| placeholder     	| Where applicable, the placeholder text to display.                                                                                                                                                               	|
+| disabled        	| Whether the field is disabled on initialisation                                                                                                                                                                  	|
+| value           	| The starting value of the field.                                                                                                                                                                                 	|
+| validators      	| Array of validators - the same format as passing it in to a FormControl.                                                                                                                                         	|
+| asyncValidators 	| Array of async validators - same as passing in to a FormControl.                                                                                                                                                 	|
+| customConfig    	| Varies from input to input. For example, `select` and `radio` fields require a field defining `options` in the custom config object.                                                                             	|
+| hooks           	| Hooks to be ran in sync with the Angular lifecycle hooks of the component generated. Can pass in an `onInit` hook to configure things like a disabled state of the field depending on the value of other inputs. 	|
 
 
 ## Customisability
