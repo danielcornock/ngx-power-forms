@@ -6,6 +6,7 @@ import { CustomSelectOptionComponent } from './components';
 import { FormInputErrorComponent } from './components/form-input-error/form-input-error.component';
 import { FormInputLabelComponent } from './components/form-input-label/form-input-label.component';
 import { FormComponent } from './components/form/form.component';
+import { FormContainerDirective } from './directives/form-container/form-container.directive';
 import { FormInputCheckboxComponent } from './form-input-components/form-input-checkbox/form-input-checkbox.component';
 import { FormInputCustomMultiSelectComponent } from './form-input-components/form-input-custom-multi-select/form-input-custom-multi-select.component';
 import { FormInputCustomSelectComponent } from './form-input-components/form-input-custom-select/form-input-custom-select.component';
@@ -38,7 +39,8 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputCustomSelectComponent,
     CustomSelectOptionComponent,
     FormInputCustomMultiSelectComponent,
-    FormComponent
+    FormComponent,
+    FormContainerDirective
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, NgSelectModule],
   providers: [FormFactory, FormInputFactory],
@@ -58,7 +60,8 @@ import { FormInputFactory } from './services/form-input-factory/form-input-facto
     FormInputCustomSelectComponent,
     CustomSelectOptionComponent,
     FormInputCustomMultiSelectComponent,
-    FormComponent
+    FormComponent,
+    FormContainerDirective
   ]
 })
 export class NgxPowerFormsModule {

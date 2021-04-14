@@ -1,4 +1,4 @@
-<form [formGroup]="formContainer.formGroup" (ngSubmit)="formContainer.save()">
+<form [formGroup]="formContainer.formGroup" (ngSubmit)="formContainer.save()" [powFormContainer]="formContainer">
   <pow-form-input-item *ngFor="let field of formContainer.fields" [formInputField]="field"></pow-form-input-item>
 
   <ng-content></ng-content>

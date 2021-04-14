@@ -1,6 +1,7 @@
 import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
 import { FormInputType } from '../constants/form-input-type.constant';
 import { FormInputCheckboxCustomConfig, FormInputCustomSelectCustomConfig, FormInputMultiSelectCustomConfig, FormInputRadioSetCustomConfig, FormInputSelectCustomConfig, FormInputTextareaCustomConfig } from './form-input-custom-config.interface';
+import { FormInputHooks } from './form-input-hooks.interface';
 
 export interface FormInputConfigMap {
   [FormInputType.TEXT]: FormInputTextConfig;
@@ -16,14 +17,32 @@ export interface FormInputConfigMap {
 export type FormInputConfig = FormInputConfigMap[keyof FormInputConfigMap];
 
 export interface FormInputBaseConfig {
+  /* Key of field - used in FormGroup */
   name: string;
+
+  /* Label to be displayed */
   label: string;
+
+  /* Type - is passed in to input for things such as email, and helps determine which field to display when using a dynamic form */
   type: FormInputType | string;
+
+  /* The starting/default value of the form field */
   value?: any;
+
+  /* Display a placeholder text (where applicable) */
   placeholder?: string;
+
+  /* Sets whether the form input is disabled on initialisation */
   disabled?: boolean;
+
+  /* Array of validators, same as what you would pass in to a form control */
   validators?: Array<ValidatorFn>;
+
+  /* Array of async validators, same as what you would pass in to a form control */
   asyncValidators?: Array<AsyncValidatorFn>;
+
+  /* Hooks that are ran on the respective life cycle within each form component */
+  hooks?: FormInputHooks;
 }
 
 export interface FormInputTextConfig extends FormInputBaseConfig {
@@ -46,9 +65,10 @@ export interface FormInputMultiSelectConfig extends FormInputConfigWithCustomCon
   value: Array<any>;
 }
 
-export interface FormInputCheckboxConfig extends OmitPlaceholder<FormInputConfigWithCustomConfig<FormInputCheckboxCustomConfig>> {
+export interface FormInputCheckboxConfig extends OmitPlaceholder<FormInputBaseConfig> {
   type: FormInputType.CHECKBOX;
   value?: boolean;
+  customConfig?: FormInputCheckboxCustomConfig;
 }
 
 export interface FormInputRadioSetConfig extends OmitPlaceholder<FormInputConfigWithCustomConfig<FormInputRadioSetCustomConfig>> {

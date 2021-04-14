@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FormInputType } from '../constants/form-input-type.constant';
 import { FormInputConfig, FormInputConfigWithCustomConfig, FormInputTextConfig } from '../interfaces/form-input-config.interface';
+import { FormInputHooks } from '../interfaces/form-input-hooks.interface';
 
 export class FormInputField<TCustomConfig = any> {
   public name: string;
@@ -12,6 +13,7 @@ export class FormInputField<TCustomConfig = any> {
   public placeholder: string;
 
   public customConfig: TCustomConfig;
+  public hooks?: FormInputHooks;
 
   public errors$: Observable<ValidationErrors | null>;
   public value$: Observable<any>;
@@ -25,6 +27,7 @@ export class FormInputField<TCustomConfig = any> {
     this.type = config.type;
     this.placeholder = (config as FormInputTextConfig).placeholder ?? '';
     this.customConfig = (config as FormInputConfigWithCustomConfig<any>).customConfig;
+    this.hooks = config.hooks;
 
     this.isRequired = config.validators?.includes(Validators.required) ?? false;
     this.value$ = this.control.valueChanges;

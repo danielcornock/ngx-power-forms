@@ -39,4 +39,8 @@ export class FormContainer {
       this.formGroup.enable();
     }
   }
+
+  public getField(name: string): FormInputField | undefined {
+    return this.fields.find(field => field.name === name);
+  }
 }

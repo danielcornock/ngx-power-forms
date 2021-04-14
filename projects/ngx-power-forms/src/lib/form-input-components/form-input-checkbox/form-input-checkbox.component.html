@@ -5,7 +5,7 @@
   <div class="form-input-checkbox" [class.is-checked]="formInputField.value"></div>
 
   <span class="form-input-label form-input-checkbox-label">
-    <ng-container *ngIf="!formInputField.customConfig.useTemplateLabel; else customTemplate">{{ formInputField.label  }}</ng-container>
+    <ng-container *ngIf="!formInputField.customConfig?.useTemplateLabel; else customTemplate">{{ formInputField.label  }}</ng-container>
 
     <ng-template #customTemplate>
       <ng-content></ng-content>

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { CustomSelectOptionComponent, FormContainer, FormFactory, FormInputType } from 'projects/ngx-power-forms/src/public-api';
 import { of } from 'rxjs';
+import { startWith } from 'rxjs/operators';
 import { FormInputCustomType } from './forms/constants/form-input-custom-type.constant';
 
 @Component({
@@ -162,6 +163,27 @@ export class AppComponent implements OnInit {
           type: FormInputType.TEXT,
           placeholder: 'You cannot type in me unless you enable me',
           disabled: true
+        },
+        {
+          name: 'decidingCheckbox',
+          label: 'If unchecked then the next field is disabled',
+          type: FormInputType.CHECKBOX
+        },
+        {
+          name: 'resultTextField',
+          label: 'This is disabled when the previous checkbox is not checked',
+          type: FormInputType.TEXT,
+          hooks: {
+            onInit: (field) => {
+              const decidingCheckbox = this.form.getField('decidingCheckbox');
+
+              if (decidingCheckbox) {
+                decidingCheckbox.value$.pipe(startWith(decidingCheckbox.value)).subscribe((val) => {
+                  field.setDisabled(!val);
+                });
+              }
+            }
+          }
         }
       ],
       onSave: (formValue: any) => {
